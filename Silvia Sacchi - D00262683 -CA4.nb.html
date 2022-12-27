@@ -2891,8 +2891,296 @@ border-radius: 0px;
 
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI09QRU5JTkcgQ1NWIEZJTEVcbmxyIDwtIHJlYWQuY3N2IChcIkM6XFxcXFVzZXJzXFxcXFNpbHZpYVxcXFxPbmVEcml2ZSAtIER1bmRhbGsgSW5zdGl0dXRlIG9mIFRlY2hub2xvZ3lcXFxcVW5pdmVyc2l0eVxcXFxEYXRhIEFuYWx5dGljcyBmb3IgSW1tZXJzaXZlIEVudmlyb25tZW50c1xcXFxDQTRcXFxcYW1hbGdhbWF0ZWRfZ2FtZV9zdXJ2ZXlfMjUwXzIwMjIuY3N2XCIpXG5sclxuYGBgIn0= -->
+<pre class="r"><code>#OPENING CSV FILE
+lr &lt;- read.csv (&quot;C:\\Users\\Silvia\\OneDrive - Dundalk Institute of Technology\\University\\Data Analytics for Immersive Environments\\CA4\\amalgamated_game_survey_250_2022.csv&quot;)
+lr</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI1NFTEVDVElORyBTQU1QTEUgT0YgMjAwIE9CU0VSVkFUSU9OU1xuc2V0LnNlZWQoMTIpICNzZXR0aW5nIHNlZWQgc28gdGhhdCB0aGUgc2FtcGxpbmcgY2FuIGJlIHJlcHJvZHVjZWQgYnkgYW55b25lIHVzaW5nIHRoaXMgY29kZVxuc2FtcGxlIDwtIHNhbXBsZSAoMTpucm93KGxyKSwgMjAwLCByZXBsYWNlID0gRkFMU0UpICNzZWxlY3RpbmcgMjAwIG9ic2VydmF0aW9uIHdpdGhvdXQgcmVwbGFjZW1lbnRcbnNhbXBsZVxubHJfc2FtcGxlIDwtIGxyIFtzYW1wbGUsIF0gI2NyZWF0aW5nIG5ldyBkYXRhc2V0IGNvbnRhaW5pbmcgb2YgdGhlIHNhbXBsZVxubHJfc2FtcGxlXG5gYGAifQ== -->
+<pre class="r"><code>#SELECTING SAMPLE OF 200 OBSERVATIONS
+set.seed(12) #setting seed so that the sampling can be reproduced by anyone using this code
+sample &lt;- sample (1:nrow(lr), 200, replace = FALSE) #selecting 200 observation without replacement
+sample
+lr_sample &lt;- lr [sample, ] #creating new dataset containing of the sample
+lr_sample</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI1NFTEVDVElORyBWQVJJQUJMRVMgVE8gVEVTVFxuI1RoZSBhaW0gb2YgdGhpcyBhbmFseXNpcyBpcyB0byB0ZXN0IHRoZSByZWxhdGlvbnNoaXAgYmV0d2VlbiB0d28gbnVtZXJpY2FsIHZhcmlhYmxlcyB2aWEgbGluZWFyIHJlZ3Jlc3Npb24uIFxuI0luIHBhcnRpY3VsYXIsIHRoZSByZWxhdGlvbnNoaXAgYmV0d2VlbiB0aGUgYXZlcmFnZSBtb250aGx5IHRpbWUgc3BlbnQgcGxheWluZyAoYXZnX21vbnRobHlfaHJzX2dhbWluZykgYW5kXG4jdGhlIGF2ZXJhZ2UgbW9udGhseSBhbW91bnQgc3BlbnQgb24gZG93bmxvYWRhYmxlIGNvbnRlbnQgKGF2Z19tb250aGx5X2V4cGVuZGl0dXJlX2RsYykgd2lsbCBiZSBhbmFseXNlZC5cblxuI1NpbmNlIHRoZXJlIGlzIG5vIGNsZWFyIGluZGljYXRpb24gb2YgdGhlIHVuaXQgb2YgbWVhc3VyZW1lbnQgZm9yIHRoZSBtb250aGx5IGV4cGVuZGl0dXJlLCBpdCB3aWxsIGJlIGFzc3VtZWQgdGhhdFxuI2VhY2ggYW1vdW50IGlzIGV4cHJlc3NlZCBpbiBVUyBkb2xsYXJzICgkKS5cblxuI1doYXQncyBleHBlY3RlZCBpcyB0byBzZWUgYSBoaWdoZXIgZXhwZW5kaXR1cmUgYW1vbmcgdGhvc2Ugd2hvIHNwZW5kIG1vcmUgdGltZSBwbGF5aW5nLiBJbiBvdGhlciB3b3JkcywgdGhlIHRpbWUgc3BlbnQgXG4jcGxheWluZyAoZXhwbGFuYXRvcnkgdmFyaWFibGUpIGlzIGV4cGVjdGVkIHRvIGJlIHByZWRpY3RpdmUgb2YgdGhlIGFtb3VudCBvZiBtb25leSBhIGdhbWVyIHdpbGwgc3BlbmQgb24gZG93bmxvYWRhYmxlXG4jY29udGVudCAocmVzcG9uc2UgdmFyaWFibGUpLlxuXG4jQmFzZWQgb24gYWxsIHRoaXMgYSBzZXQgb2YgaHlwb3RoZXNlcyB3YXMgY3JlYXRlZDpcbiNIMDogzrIxID0gMFxuI0hBOiDOsjEg4omgIDBcblxuI86yMSBpcyB0aGUgYXZlcmFnZSBjaGFuZ2UgaW4gbW9udGhseSBleHBlbmRpdHVyZSBhc3NvY2lhdGVkIHdpdGggYSBvbmUgdW5pdCBpbmNyZWFzZSBpbiBtb250aGx5IGhvdXJzIHNwZW50IHBsYXlpbmcuXG5cbiNUbyByZXBocmFzZSBpdCwgdGhlIG51bGwgaHlwb3RoZXNpcyBwcmVkaWN0cyBhIG5vbi1zaWduaWZpY2FudCBsZXZlbCBvZiBwcmVkaWN0YWJpbGl0eSBiZXR3ZWVuIHRoZSB0aW1lIHNwZW50IHBsYXlpbmdcbiNhbmQgdGhlIG1vbnRobHkgZXhwZW5kaXR1cmUgb24gZG93bmxvYWRhYmxlIGNvbnRlbnQsIHdoaWxlIHRoZSBhbHRlcm5hdGl2ZSBoeXBvdGhlc2lzIHByZWRpY3RzIGEgc2lnbmlmaWNhbnRcbiNpbXBhY3Qgb2YgbW9udGhseSBob3VycyBzcGVudCBwbGF5aW5nIG9uIHRoZSBhdmVyYWdlIG1vbnRobHkgZXhwZW5kaXR1cmUgb2YgdGhlIHBsYXllci5cbmBgYCJ9 -->
+<pre class="r"><code>#SELECTING VARIABLES TO TEST
+#The aim of this analysis is to test the relationship between two numerical variables via linear regression. 
+#In particular, the relationship between the average monthly time spent playing (avg_monthly_hrs_gaming) and
+#the average monthly amount spent on downloadable content (avg_monthly_expenditure_dlc) will be analysed.
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIlNpbHZpYSBTYWNjaGkgLSBEMDAyNjI2ODMgLUNBNCINCnN1YnRpdGxlOiAiTGluZWFyIFJlZ3Jlc3Npb24gQW5hbHlzaXMgb2YgZ2FtaW5nIGhhYml0cyINCmF1dGhvcjogIlNpbHZpYSBTYWNjaGkiDQpvdXRwdXQ6IA0KIGh0bWxfbm90ZWJvb2s6DQogICB0b2M6IHRydWUNCiAgIG51bWJlcl9zZWN0aW9uczogdHJ1ZQ0KICAgdG9jX2Zsb2F0OiB0cnVlDQotLS0NCg0KDQo=</div>
+#Since there is no clear indication of the unit of measurement for the monthly expenditure, it will be assumed that
+#each amount is expressed in US dollars ($).
+
+#What&#39;s expected is to see a higher expenditure among those who spend more time playing. In other words, the time spent 
+#playing (explanatory variable) is expected to be predictive of the amount of money a gamer will spend on downloadable
+#content (response variable).
+
+#Based on all this a set of hypotheses was created:
+#H0: β1 = 0
+#HA: β1 ≠ 0
+
+#β1 is the average change in monthly expenditure associated with a one unit increase in monthly hours spent playing.
+
+#To rephrase it, the null hypothesis predicts a non-significant level of predictability between the time spent playing
+#and the monthly expenditure on downloadable content, while the alternative hypothesis predicts a significant
+#impact of monthly hours spent playing on the average monthly expenditure of the player.</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI1NJTVBMSUZZSU5HOiBpbnN0ZWFkIG9mIGNhbGxpbmcgdGhlIGNvbHVtbiBuYW1lIGVhY2ggdGltZSBhIHZhcmlhYmxlIGlzIGFuYWx5c2VkIG9yIHRlc3RlZCwgYSBuZXcgdmVjdG9yXG4jd2lsbCBiZSBjcmVhdGVkIHdpdGggdGhlIHZhbHVlcyBvZiB0aGF0IHNhbWUgY29sdW1uLiBTdWNoIG5ldyB2YXJpYWJsZSB3aWxsIHRoZW4gYmUgdXNlZCBmb3IgYWxsIGFuYWx5c2VzLlxuXG50aW1lIDwtIGxyX3NhbXBsZSRhdmdfbW9udGhseV9ocnNfZ2FtaW5nICNjcmVhdGluZyBuZXcgdmVjdG9yIGZvciBtb250aGx5IHRpbWUgc3BlbnQgcGxheWluZ1xudGltZVxuXG5leHAgPC0gbHJfc2FtcGxlJGF2Z19tb250aGx5X2V4cGVuZGl0dXJlX2RsYyAjY3JlYXRpbmcgbmV3IHZlY3RvciBmb3IgdGhlIG1vbnRobHkgZXhwZW5kaXR1cmUgb24gZG93bmxvYWRhYmxlIGNvbnRlbnRcbmV4cFxuYGBgIn0= -->
+<pre class="r"><code>#SIMPLIFYING: instead of calling the column name each time a variable is analysed or tested, a new vector
+#will be created with the values of that same column. Such new variable will then be used for all analyses.
+
+time &lt;- lr_sample$avg_monthly_hrs_gaming #creating new vector for monthly time spent playing
+time
+
+exp &lt;- lr_sample$avg_monthly_expenditure_dlc #creating new vector for the monthly expenditure on downloadable content
+exp</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI0RFU0NSSVBUSVZFIFNUQVRJU1RJQ1NcblxuI3RpbWVcbmBgYCJ9 -->
+<pre class="r"><code>#DESCRIPTIVE STATISTICS
+
+#time</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWVhbl90aW1lIDwtIG1lYW4gKHRpbWUpICNmaW5kaW5nIGF2ZXJhZ2UgbW9udGhseSBob3VycyBzcGVudCBwbGF5aW5nXG5tZWFuX3RpbWVcbmBgYCJ9 -->
+<pre class="r"><code>mean_time &lt;- mean (time) #finding average monthly hours spent playing
+mean_time</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDE5Ljc3MlxuIn0= -->
+<pre><code>[1] 19.772</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWVkaWFuX3RpbWUgPC0gbWVkaWFuICh0aW1lKSAjZmluZGluZyBtZWRpYW4gIHZhbHVlIGZvciBtb250aGx5IGhvdXJzIHNwZW50IHBsYXlpbmdcbm1lZGlhbl90aW1lXG5gYGAifQ== -->
+<pre class="r"><code>median_time &lt;- median (time) #finding median  value for monthly hours spent playing
+median_time</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDE5LjVcbiJ9 -->
+<pre><code>[1] 19.5</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZ2V0bW9kZSA8LSBmdW5jdGlvbih2KSB7ICMgY3JlYXRpbmcgZnVuY3Rpb24gdG8gZmluZCBtb2RlXG4gIHVuaXF2IDwtIHVuaXF1ZSh2KVxuICB1bmlxdlt3aGljaC5tYXgodGFidWxhdGUobWF0Y2godiwgdW5pcXYpKSldXG59XG5cbm1vZGVfdGltZSA8LSBnZXRtb2RlICh0aW1lKSAjZmluZGluZyBtb2RlIHZhbHVlIGZvciB0aGUgbW9udGhseSBhbW91bnQgb2YgdGltZSBzcGVudCBwbGF5aW5nXG5tb2RlX3RpbWVcbmBgYCJ9 -->
+<pre class="r"><code>getmode &lt;- function(v) { # creating function to find mode
+  uniqv &lt;- unique(v)
+  uniqv[which.max(tabulate(match(v, uniqv)))]
+}
+
+mode_time &lt;- getmode (time) #finding mode value for the monthly amount of time spent playing
+mode_time</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDE5LjFcbiJ9 -->
+<pre><code>[1] 19.1</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2RfdGltZSA8LSBzZCAodGltZSkgI2ZpbmRpbmcgc3RhbmRhcmQgZGV2aWF0aW9uIGZvciB0aGUgbW9udGhseSBhbW91bnQgb2YgdGltZSBzcGVudCBwbGF5aW5nXG5zZF90aW1lXG5gYGAifQ== -->
+<pre class="r"><code>sd_time &lt;- sd (time) #finding standard deviation for the monthly amount of time spent playing
+sd_time</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDMuNDI0Mjg3XG4ifQ== -->
+<pre><code>[1] 3.424287</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudmFyX3RpbWUgPC0gdmFyICh0aW1lKSAjZmluZGluZyB2YXJpYW5jZSBmb3IgdGhlIG1vbnRobHkgYW1vdW50IG9mIHRpbWUgc3BlbnQgcGxheWluZyBcbnZhcl90aW1lXG5gYGAifQ== -->
+<pre class="r"><code>var_time &lt;- var (time) #finding variance for the monthly amount of time spent playing 
+var_time</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDExLjcyNTc0XG4ifQ== -->
+<pre><code>[1] 11.72574</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaXFyX3RpbWUgPC0gSVFSICh0aW1lKSAjZmluZGluZyBJUVIgZm9yIHRoZSBtb250aGx5IGFtb3VudCBvZiB0aW1lIHNwZW50IHBsYXlpbmdcbmlxcl90aW1lXG5gYGAifQ== -->
+<pre class="r"><code>iqr_time &lt;- IQR (time) #finding IQR for the monthly amount of time spent playing
+iqr_time</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDUuNlxuIn0= -->
+<pre><code>[1] 5.6</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucXVhcnRpbGVzX3RpbWUgPC0gcXVhbnRpbGUgKHRpbWUsIHByb2I9YyguMjUsLjUsLjc1KSkgI2ZpbmRpbmcgcXVhcnRpbGVzIGZvciB0aGUgbW9udGhseSB0aW1lIHNwZW50IHBsYXlpbmdcbnF1YXJ0aWxlc190aW1lXG5gYGAifQ== -->
+<pre class="r"><code>quartiles_time &lt;- quantile (time, prob=c(.25,.5,.75)) #finding quartiles for the monthly time spent playing
+quartiles_time</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiIDI1JSAgNTAlICA3NSUgXG4xNy4xIDE5LjUgMjIuNyBcbiJ9 -->
+<pre><code> 25%  50%  75% 
+17.1 19.5 22.7 </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYm94cGxvdCAodGltZSwgbWFpbj0nTW9udGhseSBhbW91bnQgb2YgaG91cnMgc3BlbnQgcGxheWluZyB2aWRlbyBnYW1lcycsIHlsYWI9J1RpbWUgKGgpIHNlbnQgcGxheWluZyB2aWRlby1nYW1lcyBtb250aGx5JykgI2JveCBwbG90IHRpbWUgc3BlbnQgcGxheWluZ1xuYGBgIn0= -->
+<pre class="r"><code>boxplot (time, main=&#39;Monthly amount of hours spent playing video games&#39;, ylab=&#39;Time (h) sent playing video-games monthly&#39;) #box plot time spent playing</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-plot-begin eyJoZWlnaHQiOjQzMi42MzI5LCJ3aWR0aCI6NzAwLCJzaXplX2JlaGF2aW9yIjowLCJjb25kaXRpb25zIjpbXX0= -->
+<p><img src="data:image/png;base64,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" /></p>
+<!-- rnb-plot-end -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuXG4jT25lIG91dGxpZXIgY2FuIGJlIHZpc3VhbGx5IGlkZW50aWZpZWQgaW4gdGhlIGxvd2VyIHBhcnQgb2YgdGhlIGRpc3RyaWJ1dGlvbi4gV2hpbGUgdGhlcmUgbWF5IGJlIHNvbWUgY29uY2VybnMgcmVnYXJkaW5nIFxuI3RoZSBpbXBhY3Qgb2Ygc3VjaCBvdXRsaWVyIG9uIHRoZSBkZXN0cmlwdGl2ZSBzdGF0aXN0aWNzLCBzaW5jZSBvbmx5XG5gYGAifQ== -->
+<pre class="r"><code>
+#One outlier can be visually identified in the lower part of the distribution. While there may be some concerns regarding 
+#the impact of such outlier on the destriptive statistics, since only</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWluX3RpbWUgPC0gbWluICh0aW1lKSAjZmluZGluZyBtaW5pbXVtIG1vbnRobHkgYW1vdW50IG9mIGhvdXJzIGluIHRoZSBkYXRzZXQgdGhhdCBhIHN1YmplY3QgcGxheWVkIHZpZGVvLWdhbWVzXG5taW5fdGltZVxuYGBgIn0= -->
+<pre class="r"><code>min_time &lt;- min (time) #finding minimum monthly amount of hours in the datset that a subject played video-games
+min_time</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDguN1xuIn0= -->
+<pre><code>[1] 8.7</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWF4X3RpbWUgPC0gbWF4ICh0aW1lKSAjZmluZGluZyBtYXhpbXVtIG1vbnRobHkgYW1vdW50IG9mIGhvdXJzIGluIHRoZSBkYXRzZXQgdGhhdCBhIHN1YmplY3QgcGxheWVkIHZpZGVvLWdhbWVzXG5tYXhfdGltZVxuYGBgIn0= -->
+<pre class="r"><code>max_time &lt;- max (time) #finding maximum monthly amount of hours in the datset that a subject played video-games
+max_time</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDI2LjVcbiJ9 -->
+<pre><code>[1] 26.5</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucmFuZ2VfdGltZSA8LSBtYXhfdGltZSAtIG1pbl90aW1lICNmaW5kaW5nIHJhbmdlIGZpciBtb250aGx5IHRpbWUgc3BlbnQgcGxheWluZ1xucmFuZ2VfdGltZVxuYGBgIn0= -->
+<pre class="r"><code>range_time &lt;- max_time - min_time #finding range fir monthly time spent playing
+range_time</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDE3LjhcbiJ9 -->
+<pre><code>[1] 17.8</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI2V4cGVuZGl0dXJlXG5gYGAifQ== -->
+<pre class="r"><code>#expenditure</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWVhbl9leHAgPC0gbWVhbiAoZXhwKSAjZmluZGluZyBhdmVyYWdlIG1vbnRobHkgYW1vdW50IHNwZW50IG9uIGRvd25sb2FkYWJsZSBjb250ZW50XG5tZWFuX2V4cFxuYGBgIn0= -->
+<pre class="r"><code>mean_exp &lt;- mean (exp) #finding average monthly amount spent on downloadable content
+mean_exp</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDU1Ljc2MDI1XG4ifQ== -->
+<pre><code>[1] 55.76025</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWVkaWFuX2V4cCA8LSBtZWRpYW4gKGV4cCkgI2ZpbmRpbmcgbWVkaWFuIHZhbHVlIGZvciBtb250aGx5IGV4cGVuZGl0dXJlIGZvciBkb3dubG9hZGFibGUgY29udGVudFxubWVkaWFuX2V4cFxuYGBgIn0= -->
+<pre class="r"><code>median_exp &lt;- median (exp) #finding median value for monthly expenditure for downloadable content
+median_exp</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDU1LjU2NVxuIn0= -->
+<pre><code>[1] 55.565</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubW9kZV9leHAgPC0gZ2V0bW9kZSAoZXhwKSAjZmluZGluZyBtb2RlIHZhbHVlIGZvciB0aGUgbW9udGhseSBleHBlbmRpdHVyZSBmb3IgZG93bmxvYWRhYmxlIGNvbnRlbnRcbm1vZGVfZXhwXG5gYGAifQ== -->
+<pre class="r"><code>mode_exp &lt;- getmode (exp) #finding mode value for the monthly expenditure for downloadable content
+mode_exp</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDU3Ljk1XG4ifQ== -->
+<pre><code>[1] 57.95</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2RfZXhwIDwtIHNkIChleHApICNmaW5kaW5nIHN0YW5kYXJkIGRldmlhdGlvbiBmb3IgdGhlIG1vbnRobHkgYW1vdW50IHNwZW50IG9uIGRvd25sb2FkYWJsZSBjb250ZW50XG5zZF9leHBcbmBgYCJ9 -->
+<pre class="r"><code>sd_exp &lt;- sd (exp) #finding standard deviation for the monthly amount spent on downloadable content
+sd_exp</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDkuMjgyMDA5XG4ifQ== -->
+<pre><code>[1] 9.282009</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxudmFyX2V4cCA8LSB2YXIgKGV4cCkgI2ZpbmRpbmcgdmFyaWFuY2UgZm9yIHRoZSBtb250aGx5IGFtb3VudCBzcGVudCBvbiBkb25sb2FkYWJsZSBjb250ZW50XG52YXJfZXhwXG5gYGAifQ== -->
+<pre class="r"><code>var_exp &lt;- var (exp) #finding variance for the monthly amount spent on donloadable content
+var_exp</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDg2LjE1NTY5XG4ifQ== -->
+<pre><code>[1] 86.15569</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaXFyX2V4cCA8LSBJUVIgKGV4cCkgI2ZpbmRpbmcgSVFSIGZvciB0aGUgbW9udGhseSBhbW91bnQgc3BlbnQgb24gZG93bmxvYWRhYmxlIGNvbnRlbnRcbmlxcl9leHBcbmBgYCJ9 -->
+<pre class="r"><code>iqr_exp &lt;- IQR (exp) #finding IQR for the monthly amount spent on downloadable content
+iqr_exp</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDE1LjgxNVxuIn0= -->
+<pre><code>[1] 15.815</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucXVhcnRpbGVzX2V4cCA8LSBxdWFudGlsZSAoZXhwLCBwcm9iPWMoLjI1LC41LC43NSkpICNmaW5kaW5nIHF1YXJ0aWxlcyBmb3IgdGhlIG1vbnRobHkgZG93bmxvYWRhYmxlIGNvbnRlbnQgZXhwZW5kaXR1cmVcbnF1YXJ0aWxlc19leHBcbmBgYCJ9 -->
+<pre class="r"><code>quartiles_exp &lt;- quantile (exp, prob=c(.25,.5,.75)) #finding quartiles for the monthly downloadable content expenditure
+quartiles_exp</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgIDI1JSAgICAgNTAlICAgICA3NSUgXG40Ny42OTI1IDU1LjU2NTAgNjMuNTA3NSBcbiJ9 -->
+<pre><code>    25%     50%     75% 
+47.6925 55.5650 63.5075 </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYm94cGxvdCAoZXhwLCBtYWluPSdNb250aGx5IGFtb3VudCAoJCkgc3BlbnQgb24gZG93bmxvYWRhYmxlIGNvbnRlbnQnLCB5bGFiPSdBbW91bnQgKCQpIHNwZW50IG1vbnRobHkgb24gZG93bmxvYWRhYmxlIGNvbnRlbnQnKSAjY3JlYXRpbmcgYm94IG9mIHBsb3QgbW9udGhseSBleHBlbmRpdHVyZVxuYGBgIn0= -->
+<pre class="r"><code>boxplot (exp, main=&#39;Monthly amount ($) spent on downloadable content&#39;, ylab=&#39;Amount ($) spent monthly on downloadable content&#39;) #creating box of plot monthly expenditure</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-plot-begin eyJoZWlnaHQiOjQzMi42MzI5LCJ3aWR0aCI6NzAwLCJzaXplX2JlaGF2aW9yIjowLCJjb25kaXRpb25zIjpbXX0= -->
+<p><img src="data:image/png;base64,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" /></p>
+<!-- rnb-plot-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWluX2V4cCA8LSBtaW4gKGV4cCkgI2ZpbmRpbmcgbWluaW11bSBtb250aGx5IGFtb3VudCBvZiBob3VycyBzcGVudCBvbiBkb3dubG9hZGFibGUgY29udGVudFxubWluX2V4cFxuYGBgIn0= -->
+<pre class="r"><code>min_exp &lt;- min (exp) #finding minimum monthly amount of hours spent on downloadable content
+min_exp</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDM5LjM5XG4ifQ== -->
+<pre><code>[1] 39.39</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubWF4X2V4cCA8LSBtYXggKGV4cCkgI2ZpbmRpbmcgbWF4aW11bSBtb250aGx5IGFtb3VudCBzcGVudCBvbiBkb3dubG9hZGFibGUgY29udGVudFxubWF4X2V4cFxuYGBgIn0= -->
+<pre class="r"><code>max_exp &lt;- max (exp) #finding maximum monthly amount spent on downloadable content
+max_exp</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDcyLjc4XG4ifQ== -->
+<pre><code>[1] 72.78</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucmFuZ2VfZXhwIDwtIG1heF9leHAgLSBtaW5fZXhwICNmaW5kaW5nIHJhbmdlIGZvciBtb250aGx5IGV4cGVuZGl0dXJlXG5yYW5nZV9leHBcbmBgYCJ9 -->
+<pre class="r"><code>range_exp &lt;- max_exp - min_exp #finding range for monthly expenditure
+range_exp</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDMzLjM5XG4ifQ== -->
+<pre><code>[1] 33.39</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI1RFU1RJTkcgRk9SIE5PUk1BTElUWTogTGluZWFyIHJlZ3Jlc3Npb24gaXMgYSBwYXJhbWV0cmljIHRlc3QgYW5kIHRoZXJlZm9yZSBjYW4gb25seSBiZSBhcHBsaWVkIHRvIG5vcm1hbCBkYXRhLlxuXG5gYGAifQ== -->
+<pre class="r"><code>#TESTING FOR NORMALITY: Linear regression is a parametric test and therefore can only be applied to normal data.
+</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIlNpbHZpYSBTYWNjaGkgLSBEMDAyNjI2ODMgLUNBNCINCnN1YnRpdGxlOiAiTGluZWFyIFJlZ3Jlc3Npb24gQW5hbHlzaXMgb2YgZ2FtaW5nIGhhYml0cyINCmF1dGhvcjogIlNpbHZpYSBTYWNjaGkiDQpvdXRwdXQ6IA0KIGh0bWxfbm90ZWJvb2s6DQogICB0b2M6IHRydWUNCiAgIG51bWJlcl9zZWN0aW9uczogdHJ1ZQ0KICAgdG9jX2Zsb2F0OiB0cnVlDQplZGl0b3Jfb3B0aW9uczogDQogIGNodW5rX291dHB1dF90eXBlOiBpbmxpbmUNCi0tLQ0KDQpgYGB7cn0NCiNPUEVOSU5HIENTViBGSUxFDQpsciA8LSByZWFkLmNzdiAoIkM6XFxVc2Vyc1xcU2lsdmlhXFxPbmVEcml2ZSAtIER1bmRhbGsgSW5zdGl0dXRlIG9mIFRlY2hub2xvZ3lcXFVuaXZlcnNpdHlcXERhdGEgQW5hbHl0aWNzIGZvciBJbW1lcnNpdmUgRW52aXJvbm1lbnRzXFxDQTRcXGFtYWxnYW1hdGVkX2dhbWVfc3VydmV5XzI1MF8yMDIyLmNzdiIpDQpscg0KYGBgDQoNCmBgYHtyfQ0KI1NFTEVDVElORyBTQU1QTEUgT0YgMjAwIE9CU0VSVkFUSU9OUw0Kc2V0LnNlZWQoMTIpICNzZXR0aW5nIHNlZWQgc28gdGhhdCB0aGUgc2FtcGxpbmcgY2FuIGJlIHJlcHJvZHVjZWQgYnkgYW55b25lIHVzaW5nIHRoaXMgY29kZQ0Kc2FtcGxlIDwtIHNhbXBsZSAoMTpucm93KGxyKSwgMjAwLCByZXBsYWNlID0gRkFMU0UpICNzZWxlY3RpbmcgMjAwIG9ic2VydmF0aW9uIHdpdGhvdXQgcmVwbGFjZW1lbnQNCnNhbXBsZQ0KbHJfc2FtcGxlIDwtIGxyIFtzYW1wbGUsIF0gI2NyZWF0aW5nIG5ldyBkYXRhc2V0IGNvbnRhaW5pbmcgb2YgdGhlIHNhbXBsZQ0KbHJfc2FtcGxlDQpgYGANCmBgYHtyfQ0KI1NFTEVDVElORyBWQVJJQUJMRVMgVE8gVEVTVA0KI1RoZSBhaW0gb2YgdGhpcyBhbmFseXNpcyBpcyB0byB0ZXN0IHRoZSByZWxhdGlvbnNoaXAgYmV0d2VlbiB0d28gbnVtZXJpY2FsIHZhcmlhYmxlcyB2aWEgbGluZWFyIHJlZ3Jlc3Npb24uIA0KI0luIHBhcnRpY3VsYXIsIHRoZSByZWxhdGlvbnNoaXAgYmV0d2VlbiB0aGUgYXZlcmFnZSBtb250aGx5IHRpbWUgc3BlbnQgcGxheWluZyAoYXZnX21vbnRobHlfaHJzX2dhbWluZykgYW5kDQojdGhlIGF2ZXJhZ2UgbW9udGhseSBhbW91bnQgc3BlbnQgb24gZG93bmxvYWRhYmxlIGNvbnRlbnQgKGF2Z19tb250aGx5X2V4cGVuZGl0dXJlX2RsYykgd2lsbCBiZSBhbmFseXNlZC4NCg0KI1NpbmNlIHRoZXJlIGlzIG5vIGNsZWFyIGluZGljYXRpb24gb2YgdGhlIHVuaXQgb2YgbWVhc3VyZW1lbnQgZm9yIHRoZSBtb250aGx5IGV4cGVuZGl0dXJlLCBpdCB3aWxsIGJlIGFzc3VtZWQgdGhhdA0KI2VhY2ggYW1vdW50IGlzIGV4cHJlc3NlZCBpbiBVUyBkb2xsYXJzICgkKS4NCg0KI1doYXQncyBleHBlY3RlZCBpcyB0byBzZWUgYSBoaWdoZXIgZXhwZW5kaXR1cmUgYW1vbmcgdGhvc2Ugd2hvIHNwZW5kIG1vcmUgdGltZSBwbGF5aW5nLiBJbiBvdGhlciB3b3JkcywgdGhlIHRpbWUgc3BlbnQgDQojcGxheWluZyAoZXhwbGFuYXRvcnkgdmFyaWFibGUpIGlzIGV4cGVjdGVkIHRvIGJlIHByZWRpY3RpdmUgb2YgdGhlIGFtb3VudCBvZiBtb25leSBhIGdhbWVyIHdpbGwgc3BlbmQgb24gZG93bmxvYWRhYmxlDQojY29udGVudCAocmVzcG9uc2UgdmFyaWFibGUpLg0KDQojQmFzZWQgb24gYWxsIHRoaXMgYSBzZXQgb2YgaHlwb3RoZXNlcyB3YXMgY3JlYXRlZDoNCiNIMDogzrIxID0gMA0KI0hBOiDOsjEg4omgIDANCg0KI86yMSBpcyB0aGUgYXZlcmFnZSBjaGFuZ2UgaW4gbW9udGhseSBleHBlbmRpdHVyZSBhc3NvY2lhdGVkIHdpdGggYSBvbmUgdW5pdCBpbmNyZWFzZSBpbiBtb250aGx5IGhvdXJzIHNwZW50IHBsYXlpbmcuDQoNCiNUbyByZXBocmFzZSBpdCwgdGhlIG51bGwgaHlwb3RoZXNpcyBwcmVkaWN0cyBhIG5vbi1zaWduaWZpY2FudCBsZXZlbCBvZiBwcmVkaWN0YWJpbGl0eSBiZXR3ZWVuIHRoZSB0aW1lIHNwZW50IHBsYXlpbmcNCiNhbmQgdGhlIG1vbnRobHkgZXhwZW5kaXR1cmUgb24gZG93bmxvYWRhYmxlIGNvbnRlbnQsIHdoaWxlIHRoZSBhbHRlcm5hdGl2ZSBoeXBvdGhlc2lzIHByZWRpY3RzIGEgc2lnbmlmaWNhbnQNCiNpbXBhY3Qgb2YgbW9udGhseSBob3VycyBzcGVudCBwbGF5aW5nIG9uIHRoZSBhdmVyYWdlIG1vbnRobHkgZXhwZW5kaXR1cmUgb2YgdGhlIHBsYXllci4NCmBgYA0KYGBge3J9DQojU0lNUExJRllJTkc6IGluc3RlYWQgb2YgY2FsbGluZyB0aGUgY29sdW1uIG5hbWUgZWFjaCB0aW1lIGEgdmFyaWFibGUgaXMgYW5hbHlzZWQgb3IgdGVzdGVkLCBhIG5ldyB2ZWN0b3INCiN3aWxsIGJlIGNyZWF0ZWQgd2l0aCB0aGUgdmFsdWVzIG9mIHRoYXQgc2FtZSBjb2x1bW4uIFN1Y2ggbmV3IHZhcmlhYmxlIHdpbGwgdGhlbiBiZSB1c2VkIGZvciBhbGwgYW5hbHlzZXMuDQoNCnRpbWUgPC0gbHJfc2FtcGxlJGF2Z19tb250aGx5X2hyc19nYW1pbmcgI2NyZWF0aW5nIG5ldyB2ZWN0b3IgZm9yIG1vbnRobHkgdGltZSBzcGVudCBwbGF5aW5nDQp0aW1lDQoNCmV4cCA8LSBscl9zYW1wbGUkYXZnX21vbnRobHlfZXhwZW5kaXR1cmVfZGxjICNjcmVhdGluZyBuZXcgdmVjdG9yIGZvciB0aGUgbW9udGhseSBleHBlbmRpdHVyZSBvbiBkb3dubG9hZGFibGUgY29udGVudA0KZXhwDQpgYGANCg0KYGBge3J9DQojREVTQ1JJUFRJVkUgU1RBVElTVElDUw0KDQojdGltZQ0KYGBgDQoNCmBgYHtyfQ0KbWVhbl90aW1lIDwtIG1lYW4gKHRpbWUpICNmaW5kaW5nIGF2ZXJhZ2UgbW9udGhseSBob3VycyBzcGVudCBwbGF5aW5nDQptZWFuX3RpbWUNCmBgYA0KYGBge3J9DQptZWRpYW5fdGltZSA8LSBtZWRpYW4gKHRpbWUpICNmaW5kaW5nIG1lZGlhbiAgdmFsdWUgZm9yIG1vbnRobHkgaG91cnMgc3BlbnQgcGxheWluZw0KbWVkaWFuX3RpbWUNCmBgYA0KYGBge3J9DQpnZXRtb2RlIDwtIGZ1bmN0aW9uKHYpIHsgIyBjcmVhdGluZyBmdW5jdGlvbiB0byBmaW5kIG1vZGUNCiAgdW5pcXYgPC0gdW5pcXVlKHYpDQogIHVuaXF2W3doaWNoLm1heCh0YWJ1bGF0ZShtYXRjaCh2LCB1bmlxdikpKV0NCn0NCg0KbW9kZV90aW1lIDwtIGdldG1vZGUgKHRpbWUpICNmaW5kaW5nIG1vZGUgdmFsdWUgZm9yIHRoZSBtb250aGx5IGFtb3VudCBvZiB0aW1lIHNwZW50IHBsYXlpbmcNCm1vZGVfdGltZQ0KYGBgDQpgYGB7cn0NCnNkX3RpbWUgPC0gc2QgKHRpbWUpICNmaW5kaW5nIHN0YW5kYXJkIGRldmlhdGlvbiBmb3IgdGhlIG1vbnRobHkgYW1vdW50IG9mIHRpbWUgc3BlbnQgcGxheWluZw0Kc2RfdGltZQ0KYGBgDQpgYGB7cn0NCnZhcl90aW1lIDwtIHZhciAodGltZSkgI2ZpbmRpbmcgdmFyaWFuY2UgZm9yIHRoZSBtb250aGx5IGFtb3VudCBvZiB0aW1lIHNwZW50IHBsYXlpbmcgDQp2YXJfdGltZQ0KYGBgDQpgYGB7cn0NCmlxcl90aW1lIDwtIElRUiAodGltZSkgI2ZpbmRpbmcgSVFSIGZvciB0aGUgbW9udGhseSBhbW91bnQgb2YgdGltZSBzcGVudCBwbGF5aW5nDQppcXJfdGltZQ0KYGBgDQpgYGB7cn0NCnF1YXJ0aWxlc190aW1lIDwtIHF1YW50aWxlICh0aW1lLCBwcm9iPWMoLjI1LC41LC43NSkpICNmaW5kaW5nIHF1YXJ0aWxlcyBmb3IgdGhlIG1vbnRobHkgdGltZSBzcGVudCBwbGF5aW5nDQpxdWFydGlsZXNfdGltZQ0KYGBgDQpgYGB7cn0NCmJveHBsb3QgKHRpbWUsIG1haW49J01vbnRobHkgYW1vdW50IG9mIGhvdXJzIHNwZW50IHBsYXlpbmcgdmlkZW8gZ2FtZXMnLCB5bGFiPSdUaW1lIChoKSBzZW50IHBsYXlpbmcgdmlkZW8tZ2FtZXMgbW9udGhseScpICNjcmVhdGluZyBib3ggcGxvdCBvZiB0aW1lIHNwZW50IHBsYXlpbmcNCg0KI09uZSBvdXRsaWVyIGNhbiBiZSB2aXN1YWxseSBpZGVudGlmaWVkIGluIHRoZSBsb3dlciBwYXJ0IG9mIHRoZSBkaXN0cmlidXRpb24uDQojU2luY2UgaXQncyBvbmx5IG9uZSBvYnNlcnZhdGlvbiBvdXQgb2YgMjAwIHRoZSBpbXBhY3Qgb2Ygc3VjaCBvdXRsaWVyIGNhbiBiZWVuIGNvbnNpZGVyZWQgbmVnbGlnaWJsZS4NCmBgYA0KYGBge3J9DQptaW5fdGltZSA8LSBtaW4gKHRpbWUpICNmaW5kaW5nIG1pbmltdW0gbW9udGhseSBhbW91bnQgb2YgaG91cnMgaW4gdGhlIGRhdHNldCB0aGF0IGEgc3ViamVjdCBwbGF5ZWQgdmlkZW8tZ2FtZXMNCm1pbl90aW1lDQpgYGANCmBgYHtyfQ0KbWF4X3RpbWUgPC0gbWF4ICh0aW1lKSAjZmluZGluZyBtYXhpbXVtIG1vbnRobHkgYW1vdW50IG9mIGhvdXJzIGluIHRoZSBkYXRzZXQgdGhhdCBhIHN1YmplY3QgcGxheWVkIHZpZGVvLWdhbWVzDQptYXhfdGltZQ0KYGBgDQpgYGB7cn0NCnJhbmdlX3RpbWUgPC0gbWF4X3RpbWUgLSBtaW5fdGltZSAjZmluZGluZyByYW5nZSBmb3IgbW9udGhseSB0aW1lIHNwZW50IHBsYXlpbmcNCnJhbmdlX3RpbWUNCmBgYA0KYGBge3J9DQojZXhwZW5kaXR1cmUNCmBgYA0KYGBge3J9DQptZWFuX2V4cCA8LSBtZWFuIChleHApICNmaW5kaW5nIGF2ZXJhZ2UgbW9udGhseSBhbW91bnQgc3BlbnQgb24gZG93bmxvYWRhYmxlIGNvbnRlbnQNCm1lYW5fZXhwDQpgYGANCmBgYHtyfQ0KbWVkaWFuX2V4cCA8LSBtZWRpYW4gKGV4cCkgI2ZpbmRpbmcgbWVkaWFuIHZhbHVlIGZvciBtb250aGx5IGV4cGVuZGl0dXJlIGZvciBkb3dubG9hZGFibGUgY29udGVudA0KbWVkaWFuX2V4cA0KYGBgDQpgYGB7cn0NCm1vZGVfZXhwIDwtIGdldG1vZGUgKGV4cCkgI2ZpbmRpbmcgbW9kZSB2YWx1ZSBmb3IgdGhlIG1vbnRobHkgZXhwZW5kaXR1cmUgZm9yIGRvd25sb2FkYWJsZSBjb250ZW50DQptb2RlX2V4cA0KYGBgDQpgYGB7cn0NCnNkX2V4cCA8LSBzZCAoZXhwKSAjZmluZGluZyBzdGFuZGFyZCBkZXZpYXRpb24gZm9yIHRoZSBtb250aGx5IGFtb3VudCBzcGVudCBvbiBkb3dubG9hZGFibGUgY29udGVudA0Kc2RfZXhwDQpgYGANCmBgYHtyfQ0KdmFyX2V4cCA8LSB2YXIgKGV4cCkgI2ZpbmRpbmcgdmFyaWFuY2UgZm9yIHRoZSBtb250aGx5IGFtb3VudCBzcGVudCBvbiBkb25sb2FkYWJsZSBjb250ZW50DQp2YXJfZXhwDQpgYGANCmBgYHtyfQ0KaXFyX2V4cCA8LSBJUVIgKGV4cCkgI2ZpbmRpbmcgSVFSIGZvciB0aGUgbW9udGhseSBhbW91bnQgc3BlbnQgb24gZG93bmxvYWRhYmxlIGNvbnRlbnQNCmlxcl9leHANCmBgYA0KYGBge3J9DQpxdWFydGlsZXNfZXhwIDwtIHF1YW50aWxlIChleHAsIHByb2I9YyguMjUsLjUsLjc1KSkgI2ZpbmRpbmcgcXVhcnRpbGVzIGZvciB0aGUgbW9udGhseSBkb3dubG9hZGFibGUgY29udGVudCBleHBlbmRpdHVyZQ0KcXVhcnRpbGVzX2V4cA0KYGBgDQpgYGB7cn0NCmJveHBsb3QgKGV4cCwgbWFpbj0nTW9udGhseSBhbW91bnQgKCQpIHNwZW50IG9uIGRvd25sb2FkYWJsZSBjb250ZW50JywgeWxhYj0nQW1vdW50ICgkKSBzcGVudCBtb250aGx5IG9uIGRvd25sb2FkYWJsZSBjb250ZW50JykgI2NyZWF0aW5nIGJveCBvZiBwbG90IG1vbnRobHkgZXhwZW5kaXR1cmUNCg0KI25vIHZpc2libGUgb3V0bGllcnMNCmBgYA0KYGBge3J9DQptaW5fZXhwIDwtIG1pbiAoZXhwKSAjZmluZGluZyBtaW5pbXVtIG1vbnRobHkgYW1vdW50IG9mIGhvdXJzIHNwZW50IG9uIGRvd25sb2FkYWJsZSBjb250ZW50DQptaW5fZXhwDQpgYGANCmBgYHtyfQ0KbWF4X2V4cCA8LSBtYXggKGV4cCkgI2ZpbmRpbmcgbWF4aW11bSBtb250aGx5IGFtb3VudCBzcGVudCBvbiBkb3dubG9hZGFibGUgY29udGVudA0KbWF4X2V4cA0KYGBgDQpgYGB7cn0NCnJhbmdlX2V4cCA8LSBtYXhfZXhwIC0gbWluX2V4cCAjZmluZGluZyByYW5nZSBmb3IgbW9udGhseSBleHBlbmRpdHVyZQ0KcmFuZ2VfZXhwDQpgYGANCmBgYHtyfQ0KI1RFU1RJTkcgRk9SIE5PUk1BTElUWTogTGluZWFyIHJlZ3Jlc3Npb24gaXMgYSBwYXJhbWV0cmljIHRlc3QgYW5kIHRoZXJlZm9yZSBjYW4gb25seSBiZSBhcHBsaWVkIHRvIG5vcm1hbCBkYXRhLg0KDQpgYGANCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg0KDQoNCg==</div>
 
 
 </div>

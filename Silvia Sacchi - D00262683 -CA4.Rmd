@@ -8,7 +8,7 @@ output:
    number_sections: true
    toc_float: true
 editor_options: 
-  chunk_output_type: console
+  chunk_output_type: inline
 ---
 
 ```{r}
@@ -31,6 +31,9 @@ lr_sample
 #In particular, the relationship between the average monthly time spent playing (avg_monthly_hrs_gaming) and
 #the average monthly amount spent on downloadable content (avg_monthly_expenditure_dlc) will be analysed.
 
+#Since there is no clear indication of the unit of measurement for the monthly expenditure, it will be assumed that
+#each amount is expressed in US dollars ($).
+
 #What's expected is to see a higher expenditure among those who spend more time playing. In other words, the time spent 
 #playing (explanatory variable) is expected to be predictive of the amount of money a gamer will spend on downloadable
 #content (response variable).
@@ -44,6 +47,126 @@ lr_sample
 #To rephrase it, the null hypothesis predicts a non-significant level of predictability between the time spent playing
 #and the monthly expenditure on downloadable content, while the alternative hypothesis predicts a significant
 #impact of monthly hours spent playing on the average monthly expenditure of the player.
+```
+```{r}
+#SIMPLIFYING: instead of calling the column name each time a variable is analysed or tested, a new vector
+#will be created with the values of that same column. Such new variable will then be used for all analyses.
+
+time <- lr_sample$avg_monthly_hrs_gaming #creating new vector for monthly time spent playing
+time
+
+exp <- lr_sample$avg_monthly_expenditure_dlc #creating new vector for the monthly expenditure on downloadable content
+exp
+```
+
+```{r}
+#DESCRIPTIVE STATISTICS
+
+#time
+```
+
+```{r}
+mean_time <- mean (time) #finding average monthly hours spent playing
+mean_time
+```
+```{r}
+median_time <- median (time) #finding median  value for monthly hours spent playing
+median_time
+```
+```{r}
+getmode <- function(v) { # creating function to find mode
+  uniqv <- unique(v)
+  uniqv[which.max(tabulate(match(v, uniqv)))]
+}
+
+mode_time <- getmode (time) #finding mode value for the monthly amount of time spent playing
+mode_time
+```
+```{r}
+sd_time <- sd (time) #finding standard deviation for the monthly amount of time spent playing
+sd_time
+```
+```{r}
+var_time <- var (time) #finding variance for the monthly amount of time spent playing 
+var_time
+```
+```{r}
+iqr_time <- IQR (time) #finding IQR for the monthly amount of time spent playing
+iqr_time
+```
+```{r}
+quartiles_time <- quantile (time, prob=c(.25,.5,.75)) #finding quartiles for the monthly time spent playing
+quartiles_time
+```
+```{r}
+boxplot (time, main='Monthly amount of hours spent playing video games', ylab='Time (h) sent playing video-games monthly') #creating box plot of time spent playing
+
+#One outlier can be visually identified in the lower part of the distribution.
+#Since it's only one observation out of 200 the impact of such outlier can been considered negligible.
+```
+```{r}
+min_time <- min (time) #finding minimum monthly amount of hours in the datset that a subject played video-games
+min_time
+```
+```{r}
+max_time <- max (time) #finding maximum monthly amount of hours in the datset that a subject played video-games
+max_time
+```
+```{r}
+range_time <- max_time - min_time #finding range for monthly time spent playing
+range_time
+```
+```{r}
+#expenditure
+```
+```{r}
+mean_exp <- mean (exp) #finding average monthly amount spent on downloadable content
+mean_exp
+```
+```{r}
+median_exp <- median (exp) #finding median value for monthly expenditure for downloadable content
+median_exp
+```
+```{r}
+mode_exp <- getmode (exp) #finding mode value for the monthly expenditure for downloadable content
+mode_exp
+```
+```{r}
+sd_exp <- sd (exp) #finding standard deviation for the monthly amount spent on downloadable content
+sd_exp
+```
+```{r}
+var_exp <- var (exp) #finding variance for the monthly amount spent on donloadable content
+var_exp
+```
+```{r}
+iqr_exp <- IQR (exp) #finding IQR for the monthly amount spent on downloadable content
+iqr_exp
+```
+```{r}
+quartiles_exp <- quantile (exp, prob=c(.25,.5,.75)) #finding quartiles for the monthly downloadable content expenditure
+quartiles_exp
+```
+```{r}
+boxplot (exp, main='Monthly amount ($) spent on downloadable content', ylab='Amount ($) spent monthly on downloadable content') #creating box of plot monthly expenditure
+
+#no visible outliers
+```
+```{r}
+min_exp <- min (exp) #finding minimum monthly amount of hours spent on downloadable content
+min_exp
+```
+```{r}
+max_exp <- max (exp) #finding maximum monthly amount spent on downloadable content
+max_exp
+```
+```{r}
+range_exp <- max_exp - min_exp #finding range for monthly expenditure
+range_exp
+```
+```{r}
+#TESTING FOR NORMALITY: Linear regression is a parametric test and therefore can only be applied to normal data.
+
 ```
 
 
