@@ -17,3 +17,46 @@ lr <- read.csv ("C:\\Users\\Silvia\\OneDrive - Dundalk Institute of Technology\\
 lr
 ```
 
+```{r}
+#SELECTING SAMPLE OF 200 OBSERVATIONS
+set.seed(12) #setting seed so that the sampling can be reproduced by anyone using this code
+sample <- sample (1:nrow(lr), 200, replace = FALSE) #selecting 200 observation without replacement
+sample
+lr_sample <- lr [sample, ] #creating new dataset containing of the sample
+lr_sample
+```
+```{r}
+#SELECTING VARIABLES TO TEST
+#The aim of this analysis is to test the relationship between two numerical variables via linear regression. 
+#In particular, the relationship between the average monthly time spent playing (avg_monthly_hrs_gaming) and
+#the average monthly amount spent on downloadable content (avg_monthly_expenditure_dlc) will be analysed.
+
+#What's expected is to see a higher expenditure among those who spend more time playing. In other words, the time spent 
+#playing (explanatory variable) is expected to be predictive of the amount of money a gamer will spend on downloadable
+#content (response variable).
+
+#Based on all this a set of hypotheses was created:
+#H0: β1 = 0
+#HA: β1 ≠ 0
+
+#β1 is the average change in monthly expenditure associated with a one unit increase in monthly hours spent playing.
+
+#To rephrase it, the null hypothesis predicts a non-significant level of predictability between the time spent playing
+#and the monthly expenditure on downloadable content, while the alternative hypothesis predicts a significant
+#impact of monthly hours spent playing on the average monthly expenditure of the player.
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
