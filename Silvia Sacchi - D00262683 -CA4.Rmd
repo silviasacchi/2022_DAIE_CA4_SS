@@ -165,9 +165,34 @@ range_exp <- max_exp - min_exp #finding range for monthly expenditure
 range_exp
 ```
 ```{r}
-#TESTING FOR NORMALITY: Linear regression is a parametric test and therefore can only be applied to normal data.
+#TESTING FOR NORMALITY: Linear regression does not require normality, but for the sake of being thorough normality test will be run anyways.
+
+#time
+```
+```{r}
+hist (time, col='Blue', main='Distribution of monthly time spent playing video-games', xlab='Time (h)')
+#creating histogram of the distribution for the variable time
+
+#the distribution does not seem normal. Further tests will be carried out.
+```
+```{r}
+qqnorm (time, main='Distribution of monthly time spent playing video-games') #creating q-q- plot for the distribution of the variable time
+qqline (time) #adding interpolation line
+
+#the distribution does not appear to be normal. More testing will be performed.
+```
+```{r}
+shapiro.test (time) #performing Shapiro-Wild test for normality
+
+#With p < 0.001 the null hypothesis must be rejected. The data are not normal.
+```
+```{r}
+#exp
+```
+```{r}
 
 ```
+
 
 
 
