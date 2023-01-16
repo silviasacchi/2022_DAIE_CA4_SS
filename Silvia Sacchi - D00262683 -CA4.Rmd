@@ -39,7 +39,7 @@ lr_sample
 #ŷ is the estimated response value
 #β0 is the intercept and represents the average value of y when x is 0. It corresponds to the point where the regression line 
 #meets the y axes.
-#β1 is the average change in y when x increases by 1 unit. In this case, it represents the average change in monthly expenditure when the average monthly time spent playing increases by 1 hour.
+#β1 is the average change in y when x increases by 1 unit and it's called slope. In this case, it represents the average change in monthly expenditure when the average monthly time spent playing increases by 1 hour.
 #x is the explanatory variable.
 
 #Based on all this a set of hypotheses was created:
@@ -223,9 +223,43 @@ library ("readxl") #leading realxl library
 lmExpenditure <- lm(exp~time) #creating linear regression
 summary (lmExpenditure) #viewing linear regression results
 
-#intercept value = 57.65
-#slope value = -0.1
+#β0 = 57.65
+#β1 = -0.1
+#p = 0.62 which is well above the threshold of 0.005 making this linear regression non-significant. With this parameter alone we can already establish that H0 cannot be rejected and therefore we need to assume that β1 = 0. In other words the average number of hours spent every month playing video-games doesn't predict the average monthly expenditure on downloadable content.
+#Looking at the residuals, we can also see that while the median is close to 0, there is a large variability with a minimum value of -16.85 and a maximum one of 17.40, really distant from the ideal 0 that would indicate a low difference between predicted and actual values.
+#R2 = 0.001 which is extremely low meaning that the model explains only 0.1% of the data variability. This is another proof of the lack of explanatory power of time over exp.
+```
+```{r}
+install.packages ("ggplot2")
+library ("ggplot2")
+```
+```{r}
+#creating plot to visually access the linear regression model
+ggplot (lr, aes (lr$avg_monthly_hrs_gaming, lr$avg_monthly_expenditure_dlc)) +
+  geom_point() +
+  geom_smooth (method='lm', se=FALSE, color='turquoise2') +
+  theme_minimal() +
+  labs(x='average monthly gaming time', y='average monthly expenditure on downloadable content', title='Linear Regression') +
+  theme(plot.title = element_text(hjust=0.5, size=20, face='bold')) 
 
+#the regression model plot further proofs the lack of a predictive relationship between the variables.
+```
+```{r}
+install.packages ("broom")
+library ("broom")
+```
+```{r}
+augmented <- augment (lmExpenditure) #augmenting data to add fitted and residual values.
+head (augmented)
+```
+```{r}
+#creating plot to visualise the difference between predicted and actual values
+ggplot (augmented, aes (time, exp)) +
+  geom_point() +
+  stat_smooth(method = lm, se = FALSE) +
+  geom_segment(aes(xend = time, yend = .fitted), color = "red", size = 0.3)
+
+#the visual representation of the residual allows ro easily recognise the difference between the predicted values and the actual ones. The model lacks predictability.
 ```
 
 
