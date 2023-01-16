@@ -190,7 +190,21 @@ shapiro.test (time) #performing Shapiro-Wild test for normality
 #exp
 ```
 ```{r}
+hist (exp, col='Red', main='Distribution of average monthly expenditure on downloadable content', xlab='Expenditure ($)')
+#creating histogram of the distribution for the variable exp
 
+#the distribution does not seem normal. Further tests will be carried out.
+```
+```{r}
+qqnorm (exp, main='Distribution of monthly expenditure on dowloadable content') #creating q-q- plot for the distribution of the variable exp
+qqline (exp) #adding interpolation line
+
+#the distribution does not appear to be normal. More testing will be performed.
+```
+```{r}
+shapiro.test (exp) #performing Shapiro-Wild test for normality
+
+#With p < 0.001 the null hypothesis must be rejected. The data are not normal.
 ```
 
 
