@@ -25,6 +25,7 @@ sample
 lr_sample <- lr [sample, ] #creating new dataset containing of the sample
 lr_sample
 ```
+
 ```{r}
 #SELECTING VARIABLES TO TEST AND ESTABLISHING HYPOTHESES
 #The aim of this analysis is to test the relationship between two numerical variables via linear regression. 
@@ -48,14 +49,16 @@ lr_sample
 
 #To rephrase it, the null hypothesis predicts a non-significant level of predictability between the time spent playing and the monthly expenditure on downloadable content, while the alternative hypothesis predicts a significant impact of monthly hours spent playing on the average monthly expenditure of the player.
 ```
+
 ```{r}
 #CONDITIONS FOR LINEAR REGRESSION: in order to establish if linear regression is an appropriate test the following criteria must be met:
 #Linearity
-#Nearly normal residual
+#Independence of observations
 #Constant variability
-#No extreme ouliers
+#Normality
 #Such conditions will be investigated throughout this project.
 ```
+
 ```{r}
 #SIMPLIFYING: instead of calling the column name each time a variable is analysed or tested, a new vector will be created with the values of that same column. Such new variable will then be used for all analyses.
 
@@ -76,10 +79,12 @@ exp
 mean_time <- mean (time) #finding average monthly hours spent playing
 mean_time
 ```
+
 ```{r}
 median_time <- median (time) #finding median  value for monthly hours spent playing
 median_time
 ```
+
 ```{r}
 getmode <- function(v) { # creating function to find mode
   uniqv <- unique(v)
@@ -89,136 +94,166 @@ getmode <- function(v) { # creating function to find mode
 mode_time <- getmode (time) #finding mode value for the monthly amount of time spent playing
 mode_time
 ```
+
 ```{r}
 sd_time <- sd (time) #finding standard deviation for the monthly amount of time spent playing
 sd_time
 ```
+
 ```{r}
 var_time <- var (time) #finding variance for the monthly amount of time spent playing 
 var_time
 ```
+
 ```{r}
 iqr_time <- IQR (time) #finding IQR for the monthly amount of time spent playing
 iqr_time
 ```
+
 ```{r}
 quartiles_time <- quantile (time, prob=c(.25,.5,.75)) #finding quartiles for the monthly time spent playing
 quartiles_time
 ```
+
 ```{r}
 boxplot (time, main='Monthly amount of hours spent playing video games', ylab='Time (h) sent playing video-games monthly') #creating box plot of time spent playing
 
 #One outlier can be visually identified in the lower part of the distribution.
 #Since it's only one observation out of 200 the impact of such outlier can been considered negligible.
 ```
+
 ```{r}
 min_time <- min (time) #finding minimum monthly amount of hours in the datset that a subject played video-games
 min_time
 ```
+
 ```{r}
 max_time <- max (time) #finding maximum monthly amount of hours in the datset that a subject played video-games
 max_time
 ```
+
 ```{r}
 range_time <- max_time - min_time #finding range for monthly time spent playing
 range_time
 ```
+
 ```{r}
 #expenditure
 ```
+
 ```{r}
 mean_exp <- mean (exp) #finding average monthly amount spent on downloadable content
 mean_exp
 ```
+
 ```{r}
 median_exp <- median (exp) #finding median value for monthly expenditure for downloadable content
 median_exp
 ```
+
 ```{r}
 mode_exp <- getmode (exp) #finding mode value for the monthly expenditure for downloadable content
 mode_exp
 ```
+
 ```{r}
 sd_exp <- sd (exp) #finding standard deviation for the monthly amount spent on downloadable content
 sd_exp
 ```
+
 ```{r}
 var_exp <- var (exp) #finding variance for the monthly amount spent on donloadable content
 var_exp
 ```
+
 ```{r}
 iqr_exp <- IQR (exp) #finding IQR for the monthly amount spent on downloadable content
 iqr_exp
 ```
+
 ```{r}
 quartiles_exp <- quantile (exp, prob=c(.25,.5,.75)) #finding quartiles for the monthly downloadable content expenditure
 quartiles_exp
 ```
+
 ```{r}
 boxplot (exp, main='Monthly amount ($) spent on downloadable content', ylab='Amount ($) spent monthly on downloadable content') #creating box of plot monthly expenditure
 
 #no visible outliers
 ```
+
 ```{r}
 min_exp <- min (exp) #finding minimum monthly amount of hours spent on downloadable content
 min_exp
 ```
+
 ```{r}
 max_exp <- max (exp) #finding maximum monthly amount spent on downloadable content
 max_exp
 ```
+
 ```{r}
 range_exp <- max_exp - min_exp #finding range for monthly expenditure
 range_exp
 ```
+
 ```{r}
 #TESTING FOR NORMALITY: Linear regression requires normality, therefore normality tests will be run.
 
 #time
 ```
+
 ```{r}
 hist (time, col='Blue', main='Distribution of monthly time spent playing video-games', xlab='Time (h)')
 #creating histogram of the distribution for the variable time
 
 #the distribution does not seem normal. Further tests will be carried out.
 ```
+
 ```{r}
 qqnorm (time, main='Distribution of monthly time spent playing video-games') #creating q-q- plot for the distribution of the variable time
 qqline (time) #adding interpolation line
 
 #the distribution does not appear to be normal. More testing will be performed.
 ```
+
 ```{r}
 shapiro.test (time) #performing Shapiro-Wild test for normality
 
-#With p < 0.001 the null hypothesis must be rejected. The data are not normal.
+#With p < 0.001 the null hypothesis must be rejected. The data are not normal. THE LINEAR REGRESSION MODEL MAY NOT BE APPROPRIATE FOR THIS DISTRIBUTION.
 ```
+
 ```{r}
 #exp
 ```
+
 ```{r}
 hist (exp, col='Red', main='Distribution of average monthly expenditure on downloadable content', xlab='Expenditure ($)')
 #creating histogram of the distribution for the variable exp
 
 #the distribution does not seem normal. Further tests will be carried out.
 ```
+
 ```{r}
 qqnorm (exp, main='Distribution of monthly expenditure on dowloadable content') #creating q-q- plot for the distribution of the variable exp
 qqline (exp) #adding interpolation line
 
 #the distribution does not appear to be normal. More testing will be performed.
 ```
+
 ```{r}
 shapiro.test (exp) #performing Shapiro-Wild test for normality
 
-#With p < 0.001 the null hypothesis must be rejected. The data are not normal.
+#With p < 0.001 the null hypothesis must be rejected. The data are not normal. THE LINEAR REGRESSION MODEL MAY NOT BE APPROPRIATE FOR THIS DISTRIBUTION.
 ```
+
 ```{r}
 #LINEAR REGRESSION
 
 install.packages ("readxl") #installing readxl library
 library ("readxl") #leading realxl library
 ```
+
 ```{r}
 lmExpenditure <- lm(exp~time) #creating linear regression
 summary (lmExpenditure) #viewing linear regression results
@@ -229,10 +264,12 @@ summary (lmExpenditure) #viewing linear regression results
 #Looking at the residuals, we can also see that while the median is close to 0, there is a large variability with a minimum value of -16.85 and a maximum one of 17.40, really distant from the ideal 0 that would indicate a low difference between predicted and actual values.
 #R2 = 0.001 which is extremely low meaning that the model explains only 0.1% of the data variability. This is another proof of the lack of explanatory power of time over exp.
 ```
+
 ```{r}
 install.packages ("ggplot2")
 library ("ggplot2")
 ```
+
 ```{r}
 #creating plot to visually access the linear regression model
 ggplot (lr, aes (lr$avg_monthly_hrs_gaming, lr$avg_monthly_expenditure_dlc)) +
@@ -242,16 +279,19 @@ ggplot (lr, aes (lr$avg_monthly_hrs_gaming, lr$avg_monthly_expenditure_dlc)) +
   labs(x='average monthly gaming time', y='average monthly expenditure on downloadable content', title='Linear Regression') +
   theme(plot.title = element_text(hjust=0.5, size=20, face='bold')) 
 
-#the regression model plot further proofs the lack of a predictive relationship between the variables.
+#the regression model plot further proofs the lack of a predictive relationship between the variables.What appears to be clear is that the data points do not fall on a straight line. THIS MEANS THAT THE ASSUMPTION OF LINEARY IF MNOT MET, AND IT'S FURTHER PROOF THAT LINEAR REGRESSION IS NOT A GOOD MODEL FOR THIS DISTRIBUTION.
 ```
+
 ```{r}
 install.packages ("broom")
 library ("broom")
 ```
+
 ```{r}
 augmented <- augment (lmExpenditure) #augmenting data to add fitted and residual values.
 head (augmented)
 ```
+
 ```{r}
 #creating plot to visualise the difference between predicted and actual values
 ggplot (augmented, aes (time, exp)) +
@@ -259,15 +299,11 @@ ggplot (augmented, aes (time, exp)) +
   stat_smooth(method = lm, se = FALSE) +
   geom_segment(aes(xend = time, yend = .fitted), color = "red", size = 0.3)
 
-#the visual representation of the residual allows ro easily recognise the difference between the predicted values and the actual ones. The model lacks predictability.
+#the visual representation of the residual allows to easily recognise the difference between the predicted values and the actual ones. The model lacks predictability.
 ```
-
-
-
-
-
-
-
+```{r}
+#ASSUMPTION OF INDEPENDENCE: normality and linearity have been addressed in the previous section. When it comes to independence we know by the brief that the data was randomly collected and we have reasons to believe that the observations were interdependent.
+```
 
 
 
