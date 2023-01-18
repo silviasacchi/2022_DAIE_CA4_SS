@@ -54,7 +54,7 @@ lr_sample
 #CONDITIONS FOR LINEAR REGRESSION: in order to establish if linear regression is an appropriate test the following criteria must be met:
 #Linearity
 #Independence of observations
-#Constant variability
+#Constant variance
 #Normality
 #Such conditions will be investigated throughout this project.
 ```
@@ -293,23 +293,34 @@ head (augmented)
 ```
 
 ```{r}
+#HOMOSCEDASTICITY
 #creating plot to visualise the difference between predicted and actual values
 ggplot (augmented, aes (time, exp)) +
   geom_point() +
   stat_smooth(method = lm, se = FALSE) +
   geom_segment(aes(xend = time, yend = .fitted), color = "red", size = 0.3)
 
-#the visual representation of the residual allows to easily recognise the difference between the predicted values and the actual ones. The model lacks predictability.
+#the visual representation of the residual allows to easily recognise the difference between the predicted values and the actual ones. MOREOVER, THE GRAPHIC BELOW SHOWS HOW THE VARIANCE OF THE VALUES IS NOT CONSTANT THORUGHOUT THE DISTRIBUTION PROVING, ONE MORE TIME, THAT LINEAR REGRESSION IS NOT AN APPROPRIATE TEST IN THIS CASE.
 ```
+
 ```{r}
 #ASSUMPTION OF INDEPENDENCE: normality and linearity have been addressed in the previous section. When it comes to independence we know by the brief that the data was randomly collected and we have reasons to believe that the observations were interdependent.
 ```
 
+References
 
+Kassambara (2018) *Linear regression assumptions and diagnostics in R: Essentials*, *STHDA*. Available at: <http://www.sthda.com/english/articles/39-regression-model-diagnostics/161-linear-regression-assumptions-and-diagnostics-in-r-essentials/> (Accessed: January 18, 2023).
 
+Phillips, N.D. (2018) *5.3 Generating random data*, *YaRrr! The Pirate\'s Guide to R*. Available at: <https://bookdown.org/ndphillips/YaRrr/generating-random-data.html> (Accessed: January 18, 2023).
 
+Porras, E.M. (2022) *R linear regression tutorial: LM function in R with code examples*, *DataCamp*. DataCamp. Available at: <https://www.datacamp.com/tutorial/linear-regression-R> (Accessed: January 18, 2023).
 
+*Reproducible research in R* (2020) *Section 2 YAML header*. Available at: <https://monashdatafluency.github.io/r-rep-res/yaml-header.html> (Accessed: January 18, 2023).
 
+Smith, Z.M. (2020) *9 Lesson 4: YAML Headers*, *R Markdown Crash Course*. Available at: <https://zsmith27.github.io/rmarkdown_crash-course/lesson-4-yaml-headers.html> (Accessed: January 18, 2023).
 
+Zach (2020) *How to plot a linear regression line in GGPLOT2 (with examples)*, *Statology*. Available at: <https://www.statology.org/ggplot2-linear-regression/> (Accessed: January 18, 2023).
 
+Zach (2021) *The four assumptions of linear regression*, *Statology*. Available at: <https://www.statology.org/linear-regression-assumptions/> (Accessed: January 18, 2023).
 
+Zach (2021) *Understanding the null hypothesis for linear regression*, *Statology*. Available at: <https://www.statology.org/null-hypothesis-for-linear-regression/> (Accessed: January 18, 2023).
