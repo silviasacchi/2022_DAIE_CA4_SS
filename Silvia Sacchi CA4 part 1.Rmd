@@ -18,34 +18,68 @@ editor_options:
 
 ![](images/database%20pic.png){width="993"}
 
-**Establishing Connection to MySQL DB**
+**Establishing Connection to MySQL DB and creating SQLite database**
 
 ```{r}
 #installing and loading packages
-install.packages (c ("dplyr", "RMySQL", "rstudioapi"))
+install.packages (c ("dplyr", "RMySQL", "rstudioapi", "RSQLite"))
 library (dplyr)
 library (RMySQL)
 library (rstudioapi)
+library (RSQLite)
 ```
 
 ```{r}
-conn <- dbConnect (RMySQL::MySQL(),
-                   dbname = 'sql8591939',
-                   host = 'sql8.freesqldatabase.com',
-                   port = 3306,
-                   user = 'sql8591939',
-                   password = rstudioapi::askForPassword ("Enter database password")) #the password is R3xjxxJa5F
-```
-
-**Testing remote connection**
-
-```{r}
-dbListTables (conn)
-dbListFields (conn, "Distribution")
+#creating SQLite database
+db <- "daie_ca4_data.sqlite"
+conn <- dbConnect (RSQLite::SQLite(), db)
 ```
 
 ```{r}
+#creating tables
+dbExecute (conn, "CREATE TABLE Distribution (
+    region varchar(5)  NOT NULL,
+    country varchar(20)  NOT NULL,
+    distributor_name varchar(40)  NOT NULL,
+    distributor_code int  NOT NULL,
+    CONSTRAINT Distribution_pk PRIMARY KEY (distributor_code))")
 
+dbExecute (conn, "CREATE TABLE Library (
+    asset_name varchar(15)  NOT NULL,
+    asset_code int  NOT NULL,
+    description varchar(150)  NOT NULL,
+    work_item_name varchar(15)  NOT NULL,
+    work_item_code int  NOT NULL,
+    type varchar(10)  NOT NULL,
+    format varchar(5)  NOT NULL,
+    created_by int  NOT NULL,
+    CONSTRAINT Library_pk PRIMARY KEY (asset_code))")
+
+dbExecute (conn,"CREATE TABLE Project_Information (
+    project_name varchar(100)  NOT NULL,
+    project_ID int  NOT NULL,
+    deadline date  NOT NULL,
+    description varchar(200)  NOT NULL,
+    project_owner_name varchar(40)  NOT NULL,
+    project_owner_ID int  NOT NULL,
+    CONSTRAINT Project_Information_pk PRIMARY KEY (project_ID))")
+           
+dbExecute (conn,"CREATE TABLE Team (
+    employee_ID int  NOT NULL,
+    name varchar(40)  NOT NULL,
+    team varchar(10)  NOT NULL,
+    role varchar(10)  NOT NULL,
+    email varchar(100)  NOT NULL,
+    CONSTRAINT Team_pk PRIMARY KEY (employee_ID))")
+           
+dbExecute (conn,"CREATE TABLE Work_Items (
+    item_ID int  NOT NULL,
+    item_name varchar(15)  NOT NULL,
+    description varchar(200)  NOT NULL,
+    team_member varchar(40)  NOT NULL,
+    member_ID int  NOT NULL,
+    status varchar(10)  NOT NULL,
+    CONSTRAINT Work_Items_pk PRIMARY KEY (item_ID))")
 ```
 
 ```{r}
@@ -53,4 +87,3 @@ dbListFields (conn, "Distribution")
 dbDisconnect (conn)
 ```
 
-The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
