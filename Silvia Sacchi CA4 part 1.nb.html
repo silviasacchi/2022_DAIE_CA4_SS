@@ -2908,29 +2908,27 @@ library (RSQLite)</code></pre>
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI2NyZWF0aW5nIFNRTGl0ZSBkYXRhYmFzZVxuZGIgPC0gXCJkYWllX2NhNF9kYXRhLnNxbGl0ZVwiXG5jb25uIDwtIGRiQ29ubmVjdCAoUlNRTGl0ZTo6U1FMaXRlKCksIGRiKVxuYGBgIn0= -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI2NyZWF0aW5nIFNRTGl0ZSBkYXRhYmFzZVxuZGIgPC0gXCJkYWllX2NhNF9kYXRhLnNxbGl0ZVwiXG5gYGAifQ== -->
 <pre class="r"><code>#creating SQLite database
-db &lt;- &quot;daie_ca4_data.sqlite&quot;
-conn &lt;- dbConnect (RSQLite::SQLite(), db)</code></pre>
+db &lt;- &quot;daie_ca4_data.sqlite&quot;</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
-<!-- rnb-text-begin -->
-<!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI2NyZWF0aW5nIHRhYmxlc1xuZGJFeGVjdXRlIChjb25uLCBcIkNSRUFURSBUQUJMRSBEaXN0cmlidXRpb24gKFxuICAgIHJlZ2lvbiB2YXJjaGFyKDUpICBOT1QgTlVMTCxcbiAgICBjb3VudHJ5IHZhcmNoYXIoMjApICBOT1QgTlVMTCxcbiAgICBkaXN0cmlidXRvcl9uYW1lIHZhcmNoYXIoNDApICBOT1QgTlVMTCxcbiAgICBkaXN0cmlidXRvcl9jb2RlIGludCAgTk9UIE5VTEwsXG4gICAgQ09OU1RSQUlOVCBEaXN0cmlidXRpb25fcGsgUFJJTUFSWSBLRVkgKGRpc3RyaWJ1dG9yX2NvZGUpKVwiKVxuYGBgIn0= -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuY29ubiA8LSBkYkNvbm5lY3QgKFJTUUxpdGU6OlNRTGl0ZSgpLCBkYilcbmBgYCJ9 -->
+<pre class="r"><code>conn &lt;- dbConnect (RSQLite::SQLite(), db)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI2NyZWF0aW5nIHRhYmxlc1xuZGJFeGVjdXRlIChjb25uLCBcIkNSRUFURSBUQUJMRSBEaXN0cmlidXRpb24gKFxuICAgIHJlZ2lvbiB2YXJjaGFyKDUpICBOT1QgTlVMTCxcbiAgICBjb3VudHJ5IHZhcmNoYXIoMjApICBOT1QgTlVMTCxcbiAgICBkaXN0cmlidXRvcl9uYW1lIHZhcmNoYXIoNDApICBOT1QgTlVMTCxcbiAgICBkaXN0cmlidXRvcl9jb2RlIGludCAgTk9UIE5VTEwsXG4gICAgQ09OU1RSQUlOVCBEaXN0cmlidXRpb25fcGsgUFJJTUFSWSBLRVkgKGRpc3RyaWJ1dG9yX2NvZGUpKVwiKVxuXG5kYkV4ZWN1dGUgKGNvbm4sIFwiQ1JFQVRFIFRBQkxFIExpYnJhcnkgKFxuICAgIGFzc2V0X25hbWUgdmFyY2hhcigxNSkgIE5PVCBOVUxMLFxuICAgIGFzc2V0X2NvZGUgaW50ICBOT1QgTlVMTCxcbiAgICBkZXNjcmlwdGlvbiB2YXJjaGFyKDE1MCkgIE5PVCBOVUxMLFxuICAgIHdvcmtfaXRlbV9uYW1lIHZhcmNoYXIoMTUpICBOT1QgTlVMTCxcbiAgICB3b3JrX2l0ZW1fY29kZSBpbnQgIE5PVCBOVUxMLFxuICAgIHR5cGUgdmFyY2hhcigxMCkgIE5PVCBOVUxMLFxuICAgIGZvcm1hdCB2YXJjaGFyKDUpICBOT1QgTlVMTCxcbiAgICBjcmVhdGVkX2J5IGludCAgTk9UIE5VTEwsXG4gICAgQ09OU1RSQUlOVCBMaWJyYXJ5X3BrIFBSSU1BUlkgS0VZIChhc3NldF9jb2RlKSlcIilcblxuZGJFeGVjdXRlIChjb25uLFwiQ1JFQVRFIFRBQkxFIFByb2plY3RfSW5mb3JtYXRpb24gKFxuICAgIHByb2plY3RfbmFtZSB2YXJjaGFyKDEwMCkgIE5PVCBOVUxMLFxuICAgIHByb2plY3RfSUQgaW50ICBOT1QgTlVMTCxcbiAgICBkZWFkbGluZSBkYXRlICBOT1QgTlVMTCxcbiAgICBkZXNjcmlwdGlvbiB2YXJjaGFyKDIwMCkgIE5PVCBOVUxMLFxuICAgIHByb2plY3Rfb3duZXJfbmFtZSB2YXJjaGFyKDQwKSAgTk9UIE5VTEwsXG4gICAgcHJvamVjdF9vd25lcl9JRCBpbnQgIE5PVCBOVUxMLFxuICAgIENPTlNUUkFJTlQgUHJvamVjdF9JbmZvcm1hdGlvbl9wayBQUklNQVJZIEtFWSAocHJvamVjdF9JRCkpXCIpXG4gICAgICAgICAgIFxuZGJFeGVjdXRlIChjb25uLFwiQ1JFQVRFIFRBQkxFIFRlYW0gKFxuICAgIGVtcGxveWVlX0lEIGludCAgTk9UIE5VTEwsXG4gICAgbmFtZSB2YXJjaGFyKDQwKSAgTk9UIE5VTEwsXG4gICAgdGVhbSB2YXJjaGFyKDEwKSAgTk9UIE5VTEwsXG4gICAgcm9sZSB2YXJjaGFyKDEwKSAgTk9UIE5VTEwsXG4gICAgZW1haWwgdmFyY2hhcigxMDApICBOT1QgTlVMTCxcbiAgICBDT05TVFJBSU5UIFRlYW1fcGsgUFJJTUFSWSBLRVkgKGVtcGxveWVlX0lEKSlcIilcbiAgICAgICAgICAgXG5kYkV4ZWN1dGUgKGNvbm4sXCJDUkVBVEUgVEFCTEUgV29ya19JdGVtcyAoXG4gICAgaXRlbV9JRCBpbnQgIE5PVCBOVUxMLFxuICAgIGl0ZW1fbmFtZSB2YXJjaGFyKDE1KSAgTk9UIE5VTEwsXG4gICAgZGVzY3JpcHRpb24gdmFyY2hhcigyMDApICBOT1QgTlVMTCxcbiAgICB0ZWFtX21lbWJlciB2YXJjaGFyKDQwKSAgTk9UIE5VTEwsXG4gICAgbWVtYmVyX0lEIGludCAgTk9UIE5VTEwsXG4gICAgc3RhdHVzIHZhcmNoYXIoMTApICBOT1QgTlVMTCxcbiAgICBDT05TVFJBSU5UIFdvcmtfSXRlbXNfcGsgUFJJTUFSWSBLRVkgKGl0ZW1fSUQpKVwiKVxuYGBgIn0= -->
 <pre class="r"><code>#creating tables
 dbExecute (conn, &quot;CREATE TABLE Distribution (
     region varchar(5)  NOT NULL,
     country varchar(20)  NOT NULL,
     distributor_name varchar(40)  NOT NULL,
     distributor_code int  NOT NULL,
-    CONSTRAINT Distribution_pk PRIMARY KEY (distributor_code))&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDBcbiJ9 -->
-<pre><code>[1] 0</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGJFeGVjdXRlIChjb25uLCBcIkNSRUFURSBUQUJMRSBMaWJyYXJ5IChcbiAgICBhc3NldF9uYW1lIHZhcmNoYXIoMTUpICBOT1QgTlVMTCxcbiAgICBhc3NldF9jb2RlIGludCAgTk9UIE5VTEwsXG4gICAgZGVzY3JpcHRpb24gdmFyY2hhcigxNTApICBOT1QgTlVMTCxcbiAgICB3b3JrX2l0ZW1fbmFtZSB2YXJjaGFyKDE1KSAgTk9UIE5VTEwsXG4gICAgd29ya19pdGVtX2NvZGUgaW50ICBOT1QgTlVMTCxcbiAgICB0eXBlIHZhcmNoYXIoMTApICBOT1QgTlVMTCxcbiAgICBmb3JtYXQgdmFyY2hhcig1KSAgTk9UIE5VTEwsXG4gICAgY3JlYXRlZF9ieSBpbnQgIE5PVCBOVUxMLFxuICAgIENPTlNUUkFJTlQgTGlicmFyeV9wayBQUklNQVJZIEtFWSAoYXNzZXRfY29kZSkpXCIpXG5gYGAifQ== -->
-<pre class="r"><code>dbExecute (conn, &quot;CREATE TABLE Library (
+    CONSTRAINT Distribution_pk PRIMARY KEY (distributor_code))&quot;)
+
+dbExecute (conn, &quot;CREATE TABLE Library (
     asset_name varchar(15)  NOT NULL,
     asset_code int  NOT NULL,
     description varchar(150)  NOT NULL,
@@ -2939,39 +2937,25 @@ dbExecute (conn, &quot;CREATE TABLE Distribution (
     type varchar(10)  NOT NULL,
     format varchar(5)  NOT NULL,
     created_by int  NOT NULL,
-    CONSTRAINT Library_pk PRIMARY KEY (asset_code))&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDBcbiJ9 -->
-<pre><code>[1] 0</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGJFeGVjdXRlIChjb25uLFwiQ1JFQVRFIFRBQkxFIFByb2plY3RfSW5mb3JtYXRpb24gKFxuICAgIHByb2plY3RfbmFtZSB2YXJjaGFyKDEwMCkgIE5PVCBOVUxMLFxuICAgIHByb2plY3RfSUQgaW50ICBOT1QgTlVMTCxcbiAgICBkZWFkbGluZSBkYXRlICBOT1QgTlVMTCxcbiAgICBkZXNjcmlwdGlvbiB2YXJjaGFyKDIwMCkgIE5PVCBOVUxMLFxuICAgIHByb2plY3Rfb3duZXJfbmFtZSB2YXJjaGFyKDQwKSAgTk9UIE5VTEwsXG4gICAgcHJvamVjdF9vd25lcl9JRCBpbnQgIE5PVCBOVUxMLFxuICAgIENPTlNUUkFJTlQgUHJvamVjdF9JbmZvcm1hdGlvbl9wayBQUklNQVJZIEtFWSAocHJvamVjdF9JRCkpXCIpXG5gYGAifQ== -->
-<pre class="r"><code>dbExecute (conn,&quot;CREATE TABLE Project_Information (
+    CONSTRAINT Library_pk PRIMARY KEY (asset_code))&quot;)
+
+dbExecute (conn,&quot;CREATE TABLE Project_Information (
     project_name varchar(100)  NOT NULL,
     project_ID int  NOT NULL,
     deadline date  NOT NULL,
     description varchar(200)  NOT NULL,
     project_owner_name varchar(40)  NOT NULL,
     project_owner_ID int  NOT NULL,
-    CONSTRAINT Project_Information_pk PRIMARY KEY (project_ID))&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDBcbiJ9 -->
-<pre><code>[1] 0</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuICAgICAgICAgICBcbmRiRXhlY3V0ZSAoY29ubixcIkNSRUFURSBUQUJMRSBUZWFtIChcbiAgICBlbXBsb3llZV9JRCBpbnQgIE5PVCBOVUxMLFxuICAgIG5hbWUgdmFyY2hhcig0MCkgIE5PVCBOVUxMLFxuICAgIHRlYW0gdmFyY2hhcigxMCkgIE5PVCBOVUxMLFxuICAgIHJvbGUgdmFyY2hhcigxMCkgIE5PVCBOVUxMLFxuICAgIGVtYWlsIHZhcmNoYXIoMTAwKSAgTk9UIE5VTEwsXG4gICAgQ09OU1RSQUlOVCBUZWFtX3BrIFBSSU1BUlkgS0VZIChlbXBsb3llZV9JRCkpXCIpXG5gYGAifQ== -->
-<pre class="r"><code>           
+    CONSTRAINT Project_Information_pk PRIMARY KEY (project_ID))&quot;)
+           
 dbExecute (conn,&quot;CREATE TABLE Team (
     employee_ID int  NOT NULL,
     name varchar(40)  NOT NULL,
     team varchar(10)  NOT NULL,
     role varchar(10)  NOT NULL,
     email varchar(100)  NOT NULL,
-    CONSTRAINT Team_pk PRIMARY KEY (employee_ID))&quot;)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDBcbiJ9 -->
-<pre><code>[1] 0</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuICAgICAgICAgICBcbmRiRXhlY3V0ZSAoY29ubixcIkNSRUFURSBUQUJMRSBXb3JrX0l0ZW1zIChcbiAgICBpdGVtX0lEIGludCAgTk9UIE5VTEwsXG4gICAgaXRlbV9uYW1lIHZhcmNoYXIoMTUpICBOT1QgTlVMTCxcbiAgICBkZXNjcmlwdGlvbiB2YXJjaGFyKDIwMCkgIE5PVCBOVUxMLFxuICAgIHRlYW1fbWVtYmVyIHZhcmNoYXIoNDApICBOT1QgTlVMTCxcbiAgICBtZW1iZXJfSUQgaW50ICBOT1QgTlVMTCxcbiAgICBzdGF0dXMgdmFyY2hhcigxMCkgIE5PVCBOVUxMLFxuICAgIENPTlNUUkFJTlQgV29ya19JdGVtc19wayBQUklNQVJZIEtFWSAoaXRlbV9JRCkpXCIpXG5gYGAifQ== -->
-<pre class="r"><code>           
+    CONSTRAINT Team_pk PRIMARY KEY (employee_ID))&quot;)
+           
 dbExecute (conn,&quot;CREATE TABLE Work_Items (
     item_ID int  NOT NULL,
     item_name varchar(15)  NOT NULL,
@@ -2981,9 +2965,58 @@ dbExecute (conn,&quot;CREATE TABLE Work_Items (
     status varchar(10)  NOT NULL,
     CONSTRAINT Work_Items_pk PRIMARY KEY (item_ID))&quot;)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDBcbiJ9 -->
-<pre><code>[1] 0</code></pre>
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p><strong>Populating tables with data</strong></p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGJFeGVjdXRlIChjb25uLCBcIklOU0VSVCBJTlRPIERpc3RyaWJ1dGlvblxuICAgICAgICAgICAocmVnaW9uLCBjb3VudHJ5LCBkaXN0cmlidXRvcl9uYW1lLCBkaXN0cmlidXRvcl9jb2RlKVxuICAgICAgICAgICBWQUxVRVMgKCdFTUVBJywgJ0ZyYW5jZScsICdYWVogZGlzdHJpYnV0aW9uJywgNjYpXCIpXG5gYGAifQ== -->
+<pre class="r"><code>dbExecute (conn, &quot;INSERT INTO Distribution
+           (region, country, distributor_name, distributor_code)
+           VALUES (&#39;EMEA&#39;, &#39;France&#39;, &#39;XYZ distribution&#39;, 66)&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGJFeGVjdXRlIChjb25uLCBcIklOU0VSVCBJTlRPIExpYnJhcnlcbiAgICAgICAgICAgKGFzc2V0X25hbWUsIGFzc2V0X2NvZGUsIGRlc2NyaXB0aW8sIHdvcmtfaXRlbV9uYW1lLFxuICAgICAgICAgICB3b3JrX2l0ZW1fY29kZSwgdHlwZSwgZm9ybWF0LCBjcmVhdGVkX2J5KVxuICAgICAgICAgICBWQUxVRVMgKCdtdXNpYycsIDMsICdpdCdzIG11c2ljJywgJ2l0ZW0gbXVzaWMnLCA1LFxuICAgICAgICAgICAnc2xvdycsICdNUDMnLCA4NylcIilcbmBgYCJ9 -->
+<pre class="r"><code>dbExecute (conn, &quot;INSERT INTO Library
+           (asset_name, asset_code, descriptio, work_item_name,
+           work_item_code, type, format, created_by)
+           VALUES (&#39;music&#39;, 3, &#39;it&#39;s music&#39;, &#39;item music&#39;, 5,
+           &#39;slow&#39;, &#39;MP3&#39;, 87)&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGJFeGVjdXRlIChjb25uLCBcIklOU0VSVCBJTlRPIFByb2plY3RfSW5mb3JtYXRpb25cbiAgICAgICAgICAgKHByb2plY3RfbmFtZSwgcHJvamVjdF9JRCwgZGVhZGxpbmUsIGRlc2NyaXB0aW9uLFxuICAgICAgICAgICBwcm9qZWN0X293bmVyX25hbWUsIHByb2plY3Rfb3duZXJfSUQpXG4gICAgICAgICAgIFZBTFVFUyAoJ25pY2UgcHJvamVjdCcsIDE0LCAyMDIyLTA2LTA3LCAnY29vbCBwcm9qZWN0JyxcbiAgICAgICAgICAgJ0JlbiBTbWl0aCcsIDg3KVwiKVxuYGBgIn0= -->
+<pre class="r"><code>dbExecute (conn, &quot;INSERT INTO Project_Information
+           (project_name, project_ID, deadline, description,
+           project_owner_name, project_owner_ID)
+           VALUES (&#39;nice project&#39;, 14, 2022-06-07, &#39;cool project&#39;,
+           &#39;Ben Smith&#39;, 87)&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDFcbiJ9 -->
+<pre><code>[1] 1</code></pre>
 <!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGJFeGVjdXRlIChjb25uLCBcIklOU0VSVCBJTlRPIFRlYW1cbiAgICAgICAgICAgKGVtcGxveWVlX0lELCBuYW1lLCB0ZWFtLCByb2xlLCBlbWFpbClcbiAgICAgICAgICAgVkFMVUVTICg4NywgJ0JlbiBTbWl0aCcsICdzb3VuZCcsICdzb3VuZCBlbmcnLFxuICAgICAgICAgICAnYmVuc21pdGhAcHJvamVjdC5jb20nKVwiKVxuYGBgIn0= -->
+<pre class="r"><code>dbExecute (conn, &quot;INSERT INTO Team
+           (employee_ID, name, team, role, email)
+           VALUES (87, &#39;Ben Smith&#39;, &#39;sound&#39;, &#39;sound eng&#39;,
+           &#39;bensmith@project.com&#39;)&quot;)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDFcbiJ9 -->
+<pre><code>[1] 1</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuXG5kYkV4ZWN1dGUgKGNvbm4sIFwiSU5TRVJUIElOVE8gV29ya19JdGVtc1xuICAgICAgICAgICAoaXRlbV9JRCwgaXRlbV9uYW1lLCBkZXNjcmlwdGlvbiwgdGVhbV9tZW1iZXIsXG4gICAgICAgICAgIG1lbWJlcl9JRCwgc3RhdHVzKVxuICAgICAgICAgICBWQUxVRVMgKDUsICdpdGVtIG11c2ljJywgJ2l0J3MgYSBtdXNpYyBpdGVtJyxcbiAgICAgICAgICAgJ0JlbiBTbWl0aCcsIDg3LCAnY29tcGxldGVkJylcIilcbmBgYCJ9 -->
+<pre class="r"><code>
+dbExecute (conn, &quot;INSERT INTO Work_Items
+           (item_ID, item_name, description, team_member,
+           member_ID, status)
+           VALUES (5, &#39;item music&#39;, &#39;it&#39;s a music item&#39;,
+           &#39;Ben Smith&#39;, 87, &#39;completed&#39;)&quot;)</code></pre>
+<!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
@@ -2996,7 +3029,7 @@ dbDisconnect (conn)</code></pre>
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIlNpbHZpYSBTYWNjaGkgLSBEMDAyNjI2ODMgLUNBNCINCmF1dGhvcjogIlNpbHZpYSBTYWNjaGkiDQpzdWJ0aXRsZTogQ29ubmVjdGluZyBEYXRhYmFzZQ0Kb3V0cHV0Og0KICBodG1sX2RvY3VtZW50Og0KICAgIHRvYzogeWVzDQogICAgZGZfcHJpbnQ6IHBhZ2VkDQogIGh0bWxfbm90ZWJvb2s6DQogICAgdG9jOiB5ZXMNCiAgICBudW1iZXJfc2VjdGlvbnM6IHllcw0KICAgIHRvY19mbG9hdDogeWVzDQplZGl0b3Jfb3B0aW9uczoNCiAgY2h1bmtfb3V0cHV0X3R5cGU6IGlubGluZQ0KLS0tDQoNCioqRS1SIGRpYWdyYW0qKg0KDQohW10oaW1hZ2VzL2RhdGFiYXNlJTIwcGljLnBuZyl7d2lkdGg9Ijk5MyJ9DQoNCioqRXN0YWJsaXNoaW5nIENvbm5lY3Rpb24gdG8gTXlTUUwgREIgYW5kIGNyZWF0aW5nIFNRTGl0ZSBkYXRhYmFzZSoqDQoNCmBgYHtyfQ0KI2luc3RhbGxpbmcgYW5kIGxvYWRpbmcgcGFja2FnZXMNCmluc3RhbGwucGFja2FnZXMgKGMgKCJkcGx5ciIsICJSTXlTUUwiLCAicnN0dWRpb2FwaSIsICJSU1FMaXRlIikpDQpsaWJyYXJ5IChkcGx5cikNCmxpYnJhcnkgKFJNeVNRTCkNCmxpYnJhcnkgKHJzdHVkaW9hcGkpDQpsaWJyYXJ5IChSU1FMaXRlKQ0KYGBgDQoNCmBgYHtyfQ0KI2NyZWF0aW5nIFNRTGl0ZSBkYXRhYmFzZQ0KZGIgPC0gImRhaWVfY2E0X2RhdGEuc3FsaXRlIg0KY29ubiA8LSBkYkNvbm5lY3QgKFJTUUxpdGU6OlNRTGl0ZSgpLCBkYikNCmBgYA0KDQpgYGB7cn0NCiNjcmVhdGluZyB0YWJsZXMNCmRiRXhlY3V0ZSAoY29ubiwgIkNSRUFURSBUQUJMRSBEaXN0cmlidXRpb24gKA0KICAgIHJlZ2lvbiB2YXJjaGFyKDUpICBOT1QgTlVMTCwNCiAgICBjb3VudHJ5IHZhcmNoYXIoMjApICBOT1QgTlVMTCwNCiAgICBkaXN0cmlidXRvcl9uYW1lIHZhcmNoYXIoNDApICBOT1QgTlVMTCwNCiAgICBkaXN0cmlidXRvcl9jb2RlIGludCAgTk9UIE5VTEwsDQogICAgQ09OU1RSQUlOVCBEaXN0cmlidXRpb25fcGsgUFJJTUFSWSBLRVkgKGRpc3RyaWJ1dG9yX2NvZGUpKSIpDQoNCmRiRXhlY3V0ZSAoY29ubiwgIkNSRUFURSBUQUJMRSBMaWJyYXJ5ICgNCiAgICBhc3NldF9uYW1lIHZhcmNoYXIoMTUpICBOT1QgTlVMTCwNCiAgICBhc3NldF9jb2RlIGludCAgTk9UIE5VTEwsDQogICAgZGVzY3JpcHRpb24gdmFyY2hhcigxNTApICBOT1QgTlVMTCwNCiAgICB3b3JrX2l0ZW1fbmFtZSB2YXJjaGFyKDE1KSAgTk9UIE5VTEwsDQogICAgd29ya19pdGVtX2NvZGUgaW50ICBOT1QgTlVMTCwNCiAgICB0eXBlIHZhcmNoYXIoMTApICBOT1QgTlVMTCwNCiAgICBmb3JtYXQgdmFyY2hhcig1KSAgTk9UIE5VTEwsDQogICAgY3JlYXRlZF9ieSBpbnQgIE5PVCBOVUxMLA0KICAgIENPTlNUUkFJTlQgTGlicmFyeV9wayBQUklNQVJZIEtFWSAoYXNzZXRfY29kZSkpIikNCg0KZGJFeGVjdXRlIChjb25uLCJDUkVBVEUgVEFCTEUgUHJvamVjdF9JbmZvcm1hdGlvbiAoDQogICAgcHJvamVjdF9uYW1lIHZhcmNoYXIoMTAwKSAgTk9UIE5VTEwsDQogICAgcHJvamVjdF9JRCBpbnQgIE5PVCBOVUxMLA0KICAgIGRlYWRsaW5lIGRhdGUgIE5PVCBOVUxMLA0KICAgIGRlc2NyaXB0aW9uIHZhcmNoYXIoMjAwKSAgTk9UIE5VTEwsDQogICAgcHJvamVjdF9vd25lcl9uYW1lIHZhcmNoYXIoNDApICBOT1QgTlVMTCwNCiAgICBwcm9qZWN0X293bmVyX0lEIGludCAgTk9UIE5VTEwsDQogICAgQ09OU1RSQUlOVCBQcm9qZWN0X0luZm9ybWF0aW9uX3BrIFBSSU1BUlkgS0VZIChwcm9qZWN0X0lEKSkiKQ0KICAgICAgICAgICANCmRiRXhlY3V0ZSAoY29ubiwiQ1JFQVRFIFRBQkxFIFRlYW0gKA0KICAgIGVtcGxveWVlX0lEIGludCAgTk9UIE5VTEwsDQogICAgbmFtZSB2YXJjaGFyKDQwKSAgTk9UIE5VTEwsDQogICAgdGVhbSB2YXJjaGFyKDEwKSAgTk9UIE5VTEwsDQogICAgcm9sZSB2YXJjaGFyKDEwKSAgTk9UIE5VTEwsDQogICAgZW1haWwgdmFyY2hhcigxMDApICBOT1QgTlVMTCwNCiAgICBDT05TVFJBSU5UIFRlYW1fcGsgUFJJTUFSWSBLRVkgKGVtcGxveWVlX0lEKSkiKQ0KICAgICAgICAgICANCmRiRXhlY3V0ZSAoY29ubiwiQ1JFQVRFIFRBQkxFIFdvcmtfSXRlbXMgKA0KICAgIGl0ZW1fSUQgaW50ICBOT1QgTlVMTCwNCiAgICBpdGVtX25hbWUgdmFyY2hhcigxNSkgIE5PVCBOVUxMLA0KICAgIGRlc2NyaXB0aW9uIHZhcmNoYXIoMjAwKSAgTk9UIE5VTEwsDQogICAgdGVhbV9tZW1iZXIgdmFyY2hhcig0MCkgIE5PVCBOVUxMLA0KICAgIG1lbWJlcl9JRCBpbnQgIE5PVCBOVUxMLA0KICAgIHN0YXR1cyB2YXJjaGFyKDEwKSAgTk9UIE5VTEwsDQogICAgQ09OU1RSQUlOVCBXb3JrX0l0ZW1zX3BrIFBSSU1BUlkgS0VZIChpdGVtX0lEKSkiKQ0KYGBgDQoNCmBgYHtyfQ0KI2Rpc2Nvbm5lY3RpbmcgZGF0YWJhc2UNCmRiRGlzY29ubmVjdCAoY29ubikNCmBgYA0KDQo=</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIlNpbHZpYSBTYWNjaGkgLSBEMDAyNjI2ODMgLUNBNCINCmF1dGhvcjogIlNpbHZpYSBTYWNjaGkiDQpzdWJ0aXRsZTogQ29ubmVjdGluZyBEYXRhYmFzZQ0Kb3V0cHV0Og0KICBodG1sX2RvY3VtZW50Og0KICAgIHRvYzogeWVzDQogICAgZGZfcHJpbnQ6IHBhZ2VkDQogIGh0bWxfbm90ZWJvb2s6DQogICAgdG9jOiB5ZXMNCiAgICBudW1iZXJfc2VjdGlvbnM6IHllcw0KICAgIHRvY19mbG9hdDogeWVzDQplZGl0b3Jfb3B0aW9uczoNCiAgY2h1bmtfb3V0cHV0X3R5cGU6IGlubGluZQ0KLS0tDQoNCioqRS1SIGRpYWdyYW0qKg0KDQohW10oaW1hZ2VzL2RhdGFiYXNlJTIwcGljLnBuZyl7d2lkdGg9Ijk5MyJ9DQoNCioqRXN0YWJsaXNoaW5nIENvbm5lY3Rpb24gdG8gTXlTUUwgREIgYW5kIGNyZWF0aW5nIFNRTGl0ZSBkYXRhYmFzZSoqDQoNCmBgYHtyfQ0KI2luc3RhbGxpbmcgYW5kIGxvYWRpbmcgcGFja2FnZXMNCmluc3RhbGwucGFja2FnZXMgKGMgKCJkcGx5ciIsICJSTXlTUUwiLCAicnN0dWRpb2FwaSIsICJSU1FMaXRlIikpDQpsaWJyYXJ5IChkcGx5cikNCmxpYnJhcnkgKFJNeVNRTCkNCmxpYnJhcnkgKHJzdHVkaW9hcGkpDQpsaWJyYXJ5IChSU1FMaXRlKQ0KYGBgDQoNCmBgYHtyfQ0KI2NyZWF0aW5nIFNRTGl0ZSBkYXRhYmFzZQ0KZGIgPC0gImRhaWVfY2E0X2RhdGEuc3FsaXRlIg0KYGBgDQpgYGB7cn0NCmNvbm4gPC0gZGJDb25uZWN0IChSU1FMaXRlOjpTUUxpdGUoKSwgZGIpDQpgYGANCmBgYHtyfQ0KI2NyZWF0aW5nIHRhYmxlcw0KZGJFeGVjdXRlIChjb25uLCAiQ1JFQVRFIFRBQkxFIERpc3RyaWJ1dGlvbiAoDQogICAgcmVnaW9uIHZhcmNoYXIoNSkgIE5PVCBOVUxMLA0KICAgIGNvdW50cnkgdmFyY2hhcigyMCkgIE5PVCBOVUxMLA0KICAgIGRpc3RyaWJ1dG9yX25hbWUgdmFyY2hhcig0MCkgIE5PVCBOVUxMLA0KICAgIGRpc3RyaWJ1dG9yX2NvZGUgaW50ICBOT1QgTlVMTCwNCiAgICBDT05TVFJBSU5UIERpc3RyaWJ1dGlvbl9wayBQUklNQVJZIEtFWSAoZGlzdHJpYnV0b3JfY29kZSkpIikNCg0KZGJFeGVjdXRlIChjb25uLCAiQ1JFQVRFIFRBQkxFIExpYnJhcnkgKA0KICAgIGFzc2V0X25hbWUgdmFyY2hhcigxNSkgIE5PVCBOVUxMLA0KICAgIGFzc2V0X2NvZGUgaW50ICBOT1QgTlVMTCwNCiAgICBkZXNjcmlwdGlvbiB2YXJjaGFyKDE1MCkgIE5PVCBOVUxMLA0KICAgIHdvcmtfaXRlbV9uYW1lIHZhcmNoYXIoMTUpICBOT1QgTlVMTCwNCiAgICB3b3JrX2l0ZW1fY29kZSBpbnQgIE5PVCBOVUxMLA0KICAgIHR5cGUgdmFyY2hhcigxMCkgIE5PVCBOVUxMLA0KICAgIGZvcm1hdCB2YXJjaGFyKDUpICBOT1QgTlVMTCwNCiAgICBjcmVhdGVkX2J5IGludCAgTk9UIE5VTEwsDQogICAgQ09OU1RSQUlOVCBMaWJyYXJ5X3BrIFBSSU1BUlkgS0VZIChhc3NldF9jb2RlKSkiKQ0KDQpkYkV4ZWN1dGUgKGNvbm4sIkNSRUFURSBUQUJMRSBQcm9qZWN0X0luZm9ybWF0aW9uICgNCiAgICBwcm9qZWN0X25hbWUgdmFyY2hhcigxMDApICBOT1QgTlVMTCwNCiAgICBwcm9qZWN0X0lEIGludCAgTk9UIE5VTEwsDQogICAgZGVhZGxpbmUgZGF0ZSAgTk9UIE5VTEwsDQogICAgZGVzY3JpcHRpb24gdmFyY2hhcigyMDApICBOT1QgTlVMTCwNCiAgICBwcm9qZWN0X293bmVyX25hbWUgdmFyY2hhcig0MCkgIE5PVCBOVUxMLA0KICAgIHByb2plY3Rfb3duZXJfSUQgaW50ICBOT1QgTlVMTCwNCiAgICBDT05TVFJBSU5UIFByb2plY3RfSW5mb3JtYXRpb25fcGsgUFJJTUFSWSBLRVkgKHByb2plY3RfSUQpKSIpDQogICAgICAgICAgIA0KZGJFeGVjdXRlIChjb25uLCJDUkVBVEUgVEFCTEUgVGVhbSAoDQogICAgZW1wbG95ZWVfSUQgaW50ICBOT1QgTlVMTCwNCiAgICBuYW1lIHZhcmNoYXIoNDApICBOT1QgTlVMTCwNCiAgICB0ZWFtIHZhcmNoYXIoMTApICBOT1QgTlVMTCwNCiAgICByb2xlIHZhcmNoYXIoMTApICBOT1QgTlVMTCwNCiAgICBlbWFpbCB2YXJjaGFyKDEwMCkgIE5PVCBOVUxMLA0KICAgIENPTlNUUkFJTlQgVGVhbV9wayBQUklNQVJZIEtFWSAoZW1wbG95ZWVfSUQpKSIpDQogICAgICAgICAgIA0KZGJFeGVjdXRlIChjb25uLCJDUkVBVEUgVEFCTEUgV29ya19JdGVtcyAoDQogICAgaXRlbV9JRCBpbnQgIE5PVCBOVUxMLA0KICAgIGl0ZW1fbmFtZSB2YXJjaGFyKDE1KSAgTk9UIE5VTEwsDQogICAgZGVzY3JpcHRpb24gdmFyY2hhcigyMDApICBOT1QgTlVMTCwNCiAgICB0ZWFtX21lbWJlciB2YXJjaGFyKDQwKSAgTk9UIE5VTEwsDQogICAgbWVtYmVyX0lEIGludCAgTk9UIE5VTEwsDQogICAgc3RhdHVzIHZhcmNoYXIoMTApICBOT1QgTlVMTCwNCiAgICBDT05TVFJBSU5UIFdvcmtfSXRlbXNfcGsgUFJJTUFSWSBLRVkgKGl0ZW1fSUQpKSIpDQpgYGANCioqUG9wdWxhdGluZyB0YWJsZXMgd2l0aCBkYXRhKioNCmBgYHtyfQ0KZGJFeGVjdXRlIChjb25uLCAiSU5TRVJUIElOVE8gRGlzdHJpYnV0aW9uDQogICAgICAgICAgIChyZWdpb24sIGNvdW50cnksIGRpc3RyaWJ1dG9yX25hbWUsIGRpc3RyaWJ1dG9yX2NvZGUpDQogICAgICAgICAgIFZBTFVFUyAoJ0VNRUEnLCAnRnJhbmNlJywgJ1hZWiBkaXN0cmlidXRpb24nLCA2NikiKQ0KYGBgDQpgYGB7cn0NCmRiRXhlY3V0ZSAoY29ubiwgIklOU0VSVCBJTlRPIExpYnJhcnkNCiAgICAgICAgICAgKGFzc2V0X25hbWUsIGFzc2V0X2NvZGUsIGRlc2NyaXB0aW8sIHdvcmtfaXRlbV9uYW1lLA0KICAgICAgICAgICB3b3JrX2l0ZW1fY29kZSwgdHlwZSwgZm9ybWF0LCBjcmVhdGVkX2J5KQ0KICAgICAgICAgICBWQUxVRVMgKCdtdXNpYycsIDMsICdpdCdzIG11c2ljJywgJ2l0ZW0gbXVzaWMnLCA1LA0KICAgICAgICAgICAnc2xvdycsICdNUDMnLCA4NykiKQ0KYGBgDQpgYGB7cn0NCmRiRXhlY3V0ZSAoY29ubiwgIklOU0VSVCBJTlRPIFByb2plY3RfSW5mb3JtYXRpb24NCiAgICAgICAgICAgKHByb2plY3RfbmFtZSwgcHJvamVjdF9JRCwgZGVhZGxpbmUsIGRlc2NyaXB0aW9uLA0KICAgICAgICAgICBwcm9qZWN0X293bmVyX25hbWUsIHByb2plY3Rfb3duZXJfSUQpDQogICAgICAgICAgIFZBTFVFUyAoJ25pY2UgcHJvamVjdCcsIDE0LCAyMDIyLTA2LTA3LCAnY29vbCBwcm9qZWN0JywNCiAgICAgICAgICAgJ0JlbiBTbWl0aCcsIDg3KSIpDQpgYGANCmBgYHtyfQ0KZGJFeGVjdXRlIChjb25uLCAiSU5TRVJUIElOVE8gVGVhbQ0KICAgICAgICAgICAoZW1wbG95ZWVfSUQsIG5hbWUsIHRlYW0sIHJvbGUsIGVtYWlsKQ0KICAgICAgICAgICBWQUxVRVMgKDg3LCAnQmVuIFNtaXRoJywgJ3NvdW5kJywgJ3NvdW5kIGVuZycsDQogICAgICAgICAgICdiZW5zbWl0aEBwcm9qZWN0LmNvbScpIikNCmBgYA0KYGBge3J9DQoNCmRiRXhlY3V0ZSAoY29ubiwgIklOU0VSVCBJTlRPIFdvcmtfSXRlbXMNCiAgICAgICAgICAgKGl0ZW1fSUQsIGl0ZW1fbmFtZSwgZGVzY3JpcHRpb24sIHRlYW1fbWVtYmVyLA0KICAgICAgICAgICBtZW1iZXJfSUQsIHN0YXR1cykNCiAgICAgICAgICAgVkFMVUVTICg1LCAnaXRlbSBtdXNpYycsICdpdCdzIGEgbXVzaWMgaXRlbScsDQogICAgICAgICAgICdCZW4gU21pdGgnLCA4NywgJ2NvbXBsZXRlZCcpIikNCmBgYA0KDQpgYGB7cn0NCiNkaXNjb25uZWN0aW5nIGRhdGFiYXNlDQpkYkRpc2Nvbm5lY3QgKGNvbm4pDQpgYGANCg0K</div>
 
 
 </div>

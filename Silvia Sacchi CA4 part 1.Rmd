@@ -32,9 +32,10 @@ library (RSQLite)
 ```{r}
 #creating SQLite database
 db <- "daie_ca4_data.sqlite"
+```
+```{r}
 conn <- dbConnect (RSQLite::SQLite(), db)
 ```
-
 ```{r}
 #creating tables
 dbExecute (conn, "CREATE TABLE Distribution (
@@ -80,6 +81,40 @@ dbExecute (conn,"CREATE TABLE Work_Items (
     member_ID int  NOT NULL,
     status varchar(10)  NOT NULL,
     CONSTRAINT Work_Items_pk PRIMARY KEY (item_ID))")
+```
+**Populating tables with data**
+```{r}
+dbExecute (conn, "INSERT INTO Distribution
+           (region, country, distributor_name, distributor_code)
+           VALUES ('EMEA', 'France', 'XYZ distribution', 66)")
+```
+```{r}
+dbExecute (conn, "INSERT INTO Library
+           (asset_name, asset_code, descriptio, work_item_name,
+           work_item_code, type, format, created_by)
+           VALUES ('music', 3, 'it's music', 'item music', 5,
+           'slow', 'MP3', 87)")
+```
+```{r}
+dbExecute (conn, "INSERT INTO Project_Information
+           (project_name, project_ID, deadline, description,
+           project_owner_name, project_owner_ID)
+           VALUES ('nice project', 14, 2022-06-07, 'cool project',
+           'Ben Smith', 87)")
+```
+```{r}
+dbExecute (conn, "INSERT INTO Team
+           (employee_ID, name, team, role, email)
+           VALUES (87, 'Ben Smith', 'sound', 'sound eng',
+           'bensmith@project.com')")
+```
+```{r}
+
+dbExecute (conn, "INSERT INTO Work_Items
+           (item_ID, item_name, description, team_member,
+           member_ID, status)
+           VALUES (5, 'item music', 'it's a music item',
+           'Ben Smith', 87, 'completed')")
 ```
 
 ```{r}
