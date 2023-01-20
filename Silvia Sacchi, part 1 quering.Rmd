@@ -1,0 +1,55 @@
+---
+title: "Silvia Sacchi - D00262683 -CA4 - quering"
+author: "Silvia Sacchi"
+subtitle: Quering
+output:
+  html_document:
+    toc: yes
+    df_print: paged
+  html_notebook:
+    toc: yes
+    number_sections: yes
+    toc_float: yes
+editor_options:
+  chunk_output_type: inline
+---
+
+**QUERING**
+```{r}
+install.packages (c ("knitr", "dbplyr", "rmarkdown", "tidyverse"))
+library (knitr)
+library (dbplyr)
+library (rmarkdown)
+library (tidyverse)
+library (RSQLite)
+```
+```{r}
+dbfile <- "daie_ca4_data.sqlite"
+connect <- dbConnect (RSQLite::SQLite(), dbfile)
+```
+```{r}
+dbGetQuery (connect, "SELECT name
+            FROM Team
+            WHERE team = 'sound'")
+```
+```{r}
+dbGetQuery (connect, "")
+```
+```{r}
+dbGetQuery (connect, "")
+```
+```{r}
+dbGetQuery (connect, "")
+```
+```{r}
+#disconnecting database
+dbDisconnect (connect)
+```
+
+
+
+
+
+
+
+
