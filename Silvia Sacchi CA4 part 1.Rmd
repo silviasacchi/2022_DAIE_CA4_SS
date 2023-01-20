@@ -1,0 +1,43 @@
+---
+title: "Silvia Sacchi - D00262683 -CA4"
+author: "Silvia Sacchi"
+subtitle: Connecting Database
+output:
+  html_document:
+    toc: yes
+    df_print: paged
+  html_notebook:
+    toc: yes
+    number_sections: yes
+    toc_float: yes
+editor_options:
+  chunk_output_type: inline
+---
+
+**Establishing Connection to MySQL DB**
+
+```{r}
+#installing and loading packages
+install.packages (c ("dplyr", "RMySQL", "rstudioapi"))
+library (dplyr)
+library (RMySQL)
+library (rstudioapi)
+```
+```{r}
+conn <- dbConnect (RMySQL::MySQL(),
+                   dbname = 'sql8591939',
+                   host = 'sql8.freesqldatabase.com',
+                   port = 3306,
+                   user = 'sql8591939',
+                   password = rstudioapi::askForPassword ("Enter database password"))
+```
+```{r}
+dbListTables(conn)
+```
+
+```{r}
+#disconnecting database
+dbDisconnect (conn)
+```
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
