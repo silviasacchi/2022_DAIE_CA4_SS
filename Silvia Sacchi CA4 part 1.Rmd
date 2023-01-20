@@ -14,6 +14,10 @@ editor_options:
   chunk_output_type: inline
 ---
 
+**E-R diagram**
+
+![](images/database%20pic.png){width="993"}
+
 **Establishing Connection to MySQL DB**
 
 ```{r}
@@ -23,16 +27,25 @@ library (dplyr)
 library (RMySQL)
 library (rstudioapi)
 ```
+
 ```{r}
 conn <- dbConnect (RMySQL::MySQL(),
                    dbname = 'sql8591939',
                    host = 'sql8.freesqldatabase.com',
                    port = 3306,
                    user = 'sql8591939',
-                   password = rstudioapi::askForPassword ("Enter database password"))
+                   password = rstudioapi::askForPassword ("Enter database password")) #the password is R3xjxxJa5F
 ```
+
+**Testing remote connection**
+
 ```{r}
-dbListTables(conn)
+dbListTables (conn)
+dbListFields (conn, "Distribution")
+```
+
+```{r}
+
 ```
 
 ```{r}
